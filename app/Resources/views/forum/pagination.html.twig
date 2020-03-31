@@ -1,0 +1,24 @@
+<div class="count">
+    {{ pagination.getTotalItemCount }}
+</div>
+<table>
+    <tr>
+        {# sorting of properties based on query components #}
+        <th>{{ knp_pagination_sortable(pagination, 'Id', 'forum.id') }}</th>
+        <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Sujet', 'forum.sujet') }}
+        </th>
+        <th{% if pagination.isSorted(['a.date', 'a.time']) %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Release', ['forum.date', 'forum.time']) }}
+        </th>
+    </tr>
+
+    {# table body #}
+    {% for article in pagination %}
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+            <td>{{ forum.id }}</td>
+            <td>{{ forum.title }}</td>
+            <td>{{ forum.date | date('Y-m-d') }}, {{ forum.time | date('H:i:s') }}</td>
+        </tr>
+    {% endfor %}
+</table>

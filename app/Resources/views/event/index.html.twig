@@ -1,0 +1,101 @@
+{% if app.user %}
+{% extends 'layout.html.twig' %}
+{% block bground %}
+{% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    {% if is_granted('ROLE_ASSOC') %}
+        <div align = "right">
+        <a href="{{ path('event_new') }}">
+            <button class="creereven">
+                Créer un nouveau évenement
+            </button>
+        </a>
+        </div>
+    {% endif %}
+    {% if app.user %}
+    <center><h2 class="contact-title">
+            <br><br>Evenements</h2></center>
+    {% endif %}
+    {% if app.user %}
+<div class="album py-5 bg-light">
+    <div class="container">
+<div class="post-container">
+            <div class="row">
+<form action="{{ path('event_search') }}" method="post" >
+    <div class="md-form active-pink active-pink-2 mb-3 mt-0"  style="border-bottom: 1px solid #f48fb1;box-shadow: 0 1px 0 0 #f48fb1;">
+        <input type="text" name="mot" placeholder="nom évenement" class="form-control" aria-label="Search">
+        <input type="submit" value="search" class="form-control">
+    </div>
+</form>
+                <section class="featured section-padding">
+                    <div class="container">
+                        <div class="row">
+                            {% for event in events %}
+
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                                    <div class="featured-box">
+                                        <figure>
+                                            <a href="{{ path('event_show', { 'id': event.id }) }}"><img class="img-fluid" src="{{ asset('') }}{{ vich_uploader_asset(event, 'imageFile') }}" style = "width: 300px; height: 250px;" alt="image"></a>
+                                        </figure>
+                                        <div class="content-wrapper">
+                                            <div class="feature-content">
+                                                <h4><a style="font-size:30px;color:black;"href="{{  path('event_show', { 'id': event.id }) }}">{{ event.name }}</a></h4>
+                                                <p style="font-size: 20px ;color: gray;" class="listing-tagline">{{ event.description|trim }}</p>
+                                                <div class="meta-tag">
+
+                                                    <div class="user-name">
+                                                        <a style="font-size: 20px;color: black;" href="#"><i class="lni-user"></i>{{ event.dateevent | date }} </a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="listing-bottom clearfix">
+                                                <div class="btn">
+                                                        <a href="{{ path('event_show', { 'id': event.id }) }}"><button>Découvrir</button></a>
+                                            </div>
+                                            <br>
+                                            <div class="btn">
+
+                                                    <a href="{{ path('event_edit', { 'id': event.id }) }}"><button>Supprimer</button></a>
+                                            </div>
+                                            <div class="btn">
+                                            <a href="{{ path('event_edit', { 'id': event.id }) }}"><button>Modifier</button></a>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if not app.user or not is_granted('ROLE_ASSOC') %}
+        <br><br><br><br>
+        <h1 align = "center">Connectez vous en tant qu'association pour voir ce contenu.</h1>
+    {% endif %}
+
+<style>
+    .creereven {
+        background-color: #4f4222;
+        color: white;
+        height: 35px;
+        font-family: Poppins;
+    }
+    .creereven:hover {
+        background-color: #4a4f1f;
+        color: white;
+    }
+</style>
+{% endblock %}
+{% endif %}

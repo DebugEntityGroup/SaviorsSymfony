@@ -1,0 +1,175 @@
+{% extends 'layout.html.twig' %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a class="active" href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+{% block bground %}
+<div class="bradcam_area breadcam_bg">
+    <h3>A propos de nous</h3>
+</div>
+{% endblock %}
+{% block content %}
+<div>
+    <br>
+    <br>
+    <br>
+    <h3 align = "center">
+        <font face = "Bradley Hand ITC" size = "5px;">
+            <strong>
+    Saviors est une plateforme associative de Dons en ligne qui permet aux Associations et individus ansi<br>
+    que les fournisseurs de créer et contribuer a des campagnes de collecte de Dons <br> et mobiliser du monde autour
+    de leurs causes solidaires et humanitaires,<br> projets
+    ,événements ou des simple publications et on presente un espace libre de disscussion <br>et partage d'idées.<br>
+            </strong>
+            </font>
+        </h3>
+</div>
+<div class="our_team_member">
+    <div class="container" align = "center">
+        <div class="row">
+            <div class="col-xl-3 col-md-6 col-lg-3">
+                <div class="single_team">
+                    <div class="thumb">
+                        <img src="{{ asset('Front/img/team/ahmed.png')}}" style="height: 200px; width: 200px;">
+                        <div class="social_link">
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="master_name text-center">
+                        <h3>Ahmed Mrabet</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+                <div class="single_team">
+                    <div class="thumb">
+                        <img src="{{ asset('Front/img/team/Maram.jpg')}}" style="height: 200px; width: 200px;">
+                        <div class="social_link">
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="master_name text-center">
+                        <h3>Maram Sassi</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+                <div class="single_team">
+                    <div class="thumb">
+                        <img src="{{ asset('Front/img/team/raed.jpg')}}" style="height: 200px; width: 200px;">
+                        <div class="social_link">
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="master_name text-center">
+                        <h3>Raed Omri</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+                <div class="single_team">
+                    <div class="thumb">
+                        <img src="{{ asset('Front/img/team/yasmine.jpeg')}}" style="height: 200px; width: 200px;">
+                        <div class="social_link">
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="master_name text-center">
+                        <h3>Yasmine Maaref</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+                <div class="single_team">
+                    <div class="thumb">
+
+                        <div class="social_link">
+
+                        </div>
+                    </div>
+                    <div class="master_name text-center">
+
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+                <div class="single_team">
+                    <div class="thumb">
+                        <img src="{{ asset('Front/img/team/Sofien Ressaissi 3A27.png')}}" style="height: 200px; width: 200px;">
+                        <div class="social_link">
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="master_name text-center">
+                        <h3>Sofien Ressaissi</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+                <div class="single_team">
+                    <div class="thumb">
+                        <img src="{{ asset('Front/img/team/rachida.jpg')}}" style="height: 200px; width: 200px;">
+                        <div class="social_link">
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="master_name text-center">
+                        <h3>Rachida Mbarki</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+{% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('Front/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+        <script src="{{ asset('Front/js/vendor/jquery-1.12.4.min.js')}}"></script>
+        <script src="{{ asset('Front/js/popper.min.js')}}"></script>
+        <script src="{{ asset('Front/js/bootstrap.min.js')}}"></script>
+        <script src="{{ asset('Front/js/owl.carousel.min.js')}}"></script>
+        <script src="{{ asset('Front/js/isotope.pkgd.min.js')}}"></script>
+        <script src="{{ asset('Front/js/ajax-form.js')}}"></script>
+        <script src="{{ asset('Front/js/waypoints.min.js')}}"></script>
+        <script src="{{ asset('Front/js/jquery.counterup.min.js')}}"></script>
+        <script src="{{ asset('Front/js/imagesloaded.pkgd.min.js')}}"></script>
+        <script src="{{ asset('Front/js/scrollIt.js')}}"></script>
+        <script src="{{ asset('Front/js/jquery.scrollUp.min.js')}}"></script>
+        <script src="{{ asset('Front/js/wow.min.js')}}"></script>
+        <script src="{{ asset('Front/js/nice-select.min.js')}}"></script>
+        <script src="{{ asset('Front/js/jquery.slicknav.min.js')}}"></script>
+        <script src="{{ asset('Front/js/jquery.magnific-popup.min.js')}}"></script>
+        <script src="{{ asset('Front/js/plugins.js')}}"></script>
+        <script src="{{ asset('Front/js/gijgo.min.js')}}"></script>
+        <script src="{{ asset('Front/js/contact.js')}}"></script>
+        <script src="{{ asset('Front/js/jquery.ajaxchimp.min.js')}}"></script>
+        <script src="{{ asset('Front/js/jquery.form.js')}}"></script>
+        <script src="{{ asset('Front/js/jquery.validate.min.js')}}"></script>
+        <script src="{{ asset('Front/js/mail-script.js')}}"></script>
+        <script src="{{ asset('Front/js/main.js')}}"></script>
+    {% endblock %}
+
+

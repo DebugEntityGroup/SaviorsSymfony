@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Ajouter une réclamation {% endblock %}
+{% block bground %}
+{% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   <h1 >Création d'un nouvelle réclamation</h1>
+
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Réclamer" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('reclamation_index') }}" class="-backward">
+                Liste des Réclamations</a>
+
+        </li>
+    </ul>
+    <br>
+    </div>
+        {% if not app.user %}
+            Connectez vous pour que vous puissiez gérer les Réclamations.<br><br><br><br><br><br><br><br><br><br><br>
+        {% endif %}
+{% endblock %}

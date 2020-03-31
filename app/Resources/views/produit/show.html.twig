@@ -1,0 +1,82 @@
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% extends 'layout.html.twig' %}
+{% endif %}
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% block bground %}
+    {% endblock %}
+{% endif %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!--  Content Column -->
+        <div class="col-lg-8">
+            <!-- Title -->
+           <center><h1 class="mt-4">Description sur le Produit</h1></center>
+            <br>
+            <br>
+            <br>
+            <!-- Author -->
+            <p class="lead">
+                <a href="{{ path('produit_index') }}" class="btn btn-info">Revenir a la liste</a>
+            </p>
+            <hr>
+            <p>Nom: {{ produitP.nom }}</p>
+            <p>Prix: {{ produitP.prix}} TND</p>
+            <p>De la categorie :{{ produitP.categorie.nom}}</p>
+            <hr>
+
+            <!-- Preview Image -->
+           <center> <img class="img-fluid rounded" src="{{ asset('') }}{{ vich_uploader_asset(produitP, 'imageFile') }}" alt="image"></center>
+
+            <hr>
+
+            <p class="lead">{{ produitP.description }}</p>
+            <div class="form-group">
+            <p class="form-control"> {{ form_start(form) }} {{ form_widget(form.content, {'attr':{'placeholder':'publier un commentaire'}}) }}
+            <input type="submit" value="commenter" class="btn btn-primary"> {{ form_end(form) }}</p></div>
+            <hr>
+            <!-- Comments Form -->
+            <!-- Comments Form -->
+                   <!-- <form action="{{ path('add_comment') }}" method="post" id="comment">
+                        <div class="form-group">
+
+                            <textarea class="form-control" rows="3" name="comment" placeholder="Comment here"></textarea>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>-->
+                </div>
+            </div>
+            <div align = "left">
+                <table>
+                    <h3>Liste des commentaires</h3>
+                    {% for comment in comments %}
+                    <tr>
+                        <td> Publié par {{ comment.user.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ comment.content }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+                    </div>
+        </div>
+        <br><br><br><br><br>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    {% if not app.user %} <br>
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        Sign in to view this content
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% extends 'layout.html.twig' %}
+{% endif %}
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% block bground %}
+    {% endblock %}
+{% endif %}
+{% block content %}
+    {% if app.user and is_granted('ROLE_FOURN') %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<center><h2 class="contact-title">
+        <br><br>Produit creation</h2></center>
+<div class="form-group has-error">
+    {{ form_start(form) }}
+        {{ form_widget(form.nom,{'attr':{'type':'text','class':'form-control','placeholder':'Nom...'}}) }}
+        <br> <br> <br>
+        {{ form_widget(form.description,{'attr':{'type':'textarea','class':'form-control','placeholder':'Description...'}}) }}
+        <br> <br> <br>
+        {{ form_widget(form.prix,{'attr':{'type':'text','class':'form-control','placeholder':'Prix...'}}) }}
+        <br> <br> <br>
+    {{ form_widget(form.categorie,{'attr':{'type':'text','class':'form-control','placeholder':'Categorie...'}}) }}
+    <br> <br> <br>
+    {{ form_widget(form.imageFile,{'attr':{'type':'text','class':'form-control','placeholder':'Photo...'}}) }}
+        <br> <br> <br>
+    <center> <input type="submit" value="Create" class="btn btn-common"  />  </center>
+    {{ form_end(form) }}
+</div>
+    <ul>
+        <li>
+            <a href="{{ path('produit_index') }}"><button type="button" class="btn btn-primary">Revenir a la list</button></a>
+        </li>
+    </ul>
+    {% endif %}
+<div class="alert alert-warning" role="alert">
+    <h3>
+    {% if not app.user %} <br>
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        Sign in to view this content
+    {% endif %}
+    {% if not is_granted('ROLE_FOURN') %}
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+    you're not supplier
+    {% endif %}
+    </h3>
+
+</div>
+{% endblock %}

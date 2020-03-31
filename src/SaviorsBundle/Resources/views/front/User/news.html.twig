@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+{% block title %} News {% endblock %}
+
+{% block bground %}
+    <div class="bradcam_area breadcam_bg">
+        <h3>Actualités</h3>
+    </div>
+{% endblock %}
+{% block content %}
+    <div>
+        <form>
+            <input type="text" value="" name="keywords">
+            <input type="submit" value="Rechercher">
+        </form>
+    </div>
+    <div id="news-list">
+        {% for pub in news %}
+            <div class="post">
+                <div class="article">
+                    <h1>{{ pub.titre }}</h1>
+                    {% if pub.brochureFilename is defined and pub.brochureFilename != '' %}
+                        <div class="row"><img src="{{ asset('uploads/'~pub.brochureFilename) }}" /></div>
+                    {% endif %}
+                    {% if pub.video is defined and pub.video != '' %}
+                        <iframe width="420" height="315" src="{{ pub.video }}"></iframe>
+                    {% endif %}
+                    {{ pub.description|raw }}
+                    <div class="clearfix"></div>
+                    <a href="{{ path('news_set_like_status', {id: pub.id}) }}" class="fa fa-heart {%  if pub.hasCurrentUserLike(app.user.id) %}liked{% endif %}">&nbsp;</a> ({{ pub.likes|length }})
+                    <a href="" class="fa fa-comments">&nbsp;</a> ({{ pub.comments|length }})
+                </div>
+                <div class="article-comments">
+                    {% for comment in pub.comments %}
+                        <div class="comment">
+                            {{ comment.description|raw }}
+                        </div>
+                    {% endfor %}
+                    <div class="clearfix">&nbsp;</div>
+                    <a href="{{ path('commentaire_new', {id: pub.id}) }}">Ajouter un commentaire</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination"></div>
+{% endblock %}

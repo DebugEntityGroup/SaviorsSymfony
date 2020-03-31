@@ -1,0 +1,97 @@
+{% if app.user and is_granted('ROLE_USER') %}
+    {% extends 'layout.html.twig' %}
+{% endif %}
+{% if app.user and is_granted('ROLE_USER') %}
+    {% block bground %}
+    {% endblock %}
+{% endif %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    {% if app.user %}
+    <center><h2 class="contact-title">
+            <br><br>Mes Forums</h2></center>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="post-container">
+                <div class="row">
+                    <ul>
+                    <li>
+
+                        <button  class="btn btn-sm btn-outline-info" >
+                            <a href="{{ path('forum_new') }}"> <h3>Create a new forum </h3></a></button>
+                        <button  class="btn btn-sm btn-outline-info"> <a href="{{ path('mesforum') }}"> <h3>Consulter mes forumhh </h3></a></button>
+
+
+                    </li>
+                    </ul>
+
+
+                    <section class="featured section-padding">
+                        <div class="container">
+                            <div class="row">
+                                {% for forum in forums %}
+                                    {% if app.user.username == forum.user.username %}
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                                        <div class="featured-box">
+                                            <figure>
+                                                <td><a href="{{ path('forum_show', { 'id': forum.id }) }}"></a></td>
+                                            </figure>
+                                            <div class="content-wrapper" style="margin-right: 150px;">
+                                                <div class="feature-content">
+                                                    <h4><a href="{{  path('forum_show', { 'id': forum.id }) }}">{{ forum.sujet }}</a></h4>
+                                                    <p class="listing-tagline">{{ forum.description|trim }}</p>
+                                                    <div class="meta-tag">
+                                                        <div class="user-name">
+
+                                                        <br>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="listing-bottom clearfix">
+                                                    <div class="btn-group">
+
+                                                        <a href="{{ path('forum_edit', { 'id': forum.id }) }}"><button type="button" class="btn btn-sm btn-outline-info" style="margin-right: 5px;">Update</button></a>
+                                                        <a href="{{ path('forum_delete',{'id': forum.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger" style="margin-right: 30px;" >Delete</button></a>
+                                                        <a href="{{ path('forum_show', { 'id': forum.id }) }}"><button type="button" class="btn btn-sm btn-outline-primary" style="margin-right: 150px;">View</button></a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                    </section>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+<div class="pagination">
+    <li class="active page-item">
+        <span class="page-link">{{ knp_pagination_render(forums) }}</span>
+    </li>
+</div>
+    {% if not app.user %} <br>
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br>
+        <h1 align="center">Sign in to view this content</h1>
+    {% endif %}
+    {% if not is_granted('ROLE_USER') %}
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        you're not supplier
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,59 @@
+{% if is_granted('ROLE_ADMIN') %}
+{% extends 'layout.html.twig' %}
+    {% block bground %}
+    {% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Liste des Raisons</h1>
+    <div align="right">
+    <a href="{{ path('raisons_new') }}">
+        <button class="btn-success">
+        Ajouter une nouvelle Raison
+        </button>
+    </a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Type de la raison</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for raison in raisons %}
+            <tr>
+                <td>{{ raison.typeRaison }}</td>
+                <td>
+                    <ul>
+
+                        <li>
+                            <a href="{{ path('raisons_supp', { 'typeRaison': raison.typeRaison }) }}">
+                                <button class="btn-danger">
+                                Supprimer
+                                </button>
+                            </a>
+                        </li>
+
+                        <li>
+
+                            <a href="{{ path('raisons_edit', { 'typeRaison': raison.typeRaison }) }}">
+                                <button class="btn-info">
+                                Modifier
+                                </button>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+{% endif %}

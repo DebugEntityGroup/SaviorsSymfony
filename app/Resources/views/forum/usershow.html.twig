@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+ {% block bground %}
+ {% endblock %}
+
+{% block content %}
+    <center><h2 class="contact-title">
+            <br><br>Forum</h2></center>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="post-container">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                        <div class="featured-box">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ forum.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Sujet</th>
+                                    <td>{{ forum.sujet }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td>{{ forum.description }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="listing-bottom clearfix">
+                        <div class="btn-group">
+
+                            <a href="{{ path('forum_index') }}"><button type="button" class="btn btn-sm btn-outline-info">back to the liste</button></a>
+                            <ahref="{{ path('forum_edit', { 'id': forum.id }) }}"><button type="button" class="btn btn-sm btn-outline-danger">Edit</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+    </section>
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Saviors{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block stylesheets %}{% endblock %}
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Front/img/favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/Font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/gijgo.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/css/responsive.css') }}">
+    <script src="{{ asset('https://www.google.com/reCAPTCHA/api.js')}}"></script>
+</head>
+{% if not is_granted('ROLE_ADMIN')%}
+    <body>
+    {% block header %}
+        <header>
+            <div class="header-area">
+                <div id="sticky-header" class="main-header-area">
+                    <div class="container-fluid p-0">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo-img">
+                                    <a href="{{ path('saviors_homepage') }}">
+                                        <img src="{{ asset('Front/img/logosavior.png') }}" alt="Saviors" style = "width: 170px; height: 90px;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation" >
+                                            {% block nav %}
+                                            <li><a class="active" href="{{ path('saviors_homepage') }}">Accueil</a></li>
+                                            <li><a href="{{ path('news') }}">Actualités</a></li>
+
+                                            <li><a href="{{ path('about') }}">A Propos</a></li>
+
+                                            <li><a href="{{ path('contact') }}">Contact</a></li>
+                                            {% endblock %}
+                                            {% if app.user %}
+                                                {% block action %}
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "color: white;">
+                                                        Actions
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <a  style="padding: 0" class="dropdown-item" href="{{ path('event_index') }}">Evenement</a>
+                                                        <a style="padding: 0" class="dropdown-item" href="{{ path('publication_index') }}">Publication</a>
+                                                        <a style="padding: 0" class="dropdown-item" href="{{ path('reclamation_index') }}">Réclamation</a>
+                                                        <a style="padding: 0" class="dropdown-item" href="{{ path('collect_liste') }}">Collecte</a>
+                                                        <a  style="padding: 0" class="dropdown-item" href="{{ path('produit_index') }}">Produit</a>
+                                                        <a style="padding: 0" class="dropdown-item" href="{{ path('categorieforum_index') }}">Forum</a>
+                                                    </div>
+                                                </li>
+                                                {% endblock %}
+                                                <li>
+                                                    Bonjour <strong> {{ app.user.username }} </strong>
+                                                </li>
+
+
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                <li><a href="{{ path('user_logout') }}">
+                                                        <font style="font-family: Arial;">Se Déconnecter</font></a></li>
+
+
+
+
+
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <style>
+                                .header-area .main-header-area .main-menu ul li.dropdown a{
+                                    padding: 0;
+                                    color: black;
+                                    text-align: center;
+                                }
+
+                            </style>
+
+
+{% if not (app.user) %}
+                            <div class="col-xl-3 col-lg-3 d-lg-block">
+                                <div class="log_chat_area d-flex align-items-center">
+                                    <a href="{{ path('fos_user_security_login') }}">
+                                        <i class="flaticon-user"></i>
+                                        <span style="color: white;">Se Connecter</span>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
+    {% block bground %}
+        <div class="slider_area ">
+            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-xl-6 col-md-6">
+                            <div class="illastrator_png">
+                                <br>
+                                <img src="{{ asset('Front/img/banner/solidarity.jpg') }}" alt="" style = "width: 380px; height: 380px;">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6">
+                            <div class="slider_info">
+                                <h1>"Sans solidarité, performances ni durables<br> ni honorables"<br>
+                                </h1><br><h4>François Proust</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    {% block content %}
+
+    {% endblock %}
+    {% block footer %}
+        <footer class="footer footer_bg_1">
+            <div class="footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6 col-lg-4">
+                            <div class="footer_widget">
+                                <div class="footer_logo">
+                                    <a href="#">
+                                        <img src="{{ asset('Front/img/logosavior.png') }}" alt="Saviors" style = "width: 170px; height: 120px;">
+                                    </a>
+                                </div>
+                                <p>
+                                    saviors est une plateforme associative de Dons en ligne qui permet aux associations et individus ansi que les fournisseurs de créer <br>
+                                    et contribuer a des campagnes de collecte de Dons et mobiliser du monde autour de leurs causes solidaires ethumanitaires, projets  <br>
+                                    ,événements ou des simple publications et on presente un espace libre de disscussion et partage d'idées
+                                    Saviors.tn est 100% sécurisée et facile à utiliser.
+                                </p>
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="www.facebook.com/saviors">
+                                                <i class="ti-facebook"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="www.twitter.com/saviors">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="instagram.com/@saviors">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+                            <div class="footer_widget">
+
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 col-lg-2">
+                            <div class="footer_widget">
+
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 col-lg-3" >
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Addresse
+                                </h3>
+                                <p>
+                                    2082, Debug Entity, Tunisie Tunis-Ariana <br>
+                                    +216 72202203 <br>
+                                    Saviors@esprit.tn
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% block underfooter %}
+            <div class="copy-right_text">
+                <div class="container">
+                    <div class="footer_border"></div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <p class="copy_right text-center">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://Saviors.com" target="_blank">Debug Entity</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </footer>
+    {% endblock %}
+    {% block form %}
+
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('Front/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+        <script src="{{ asset('Front/js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ asset('Front/js/popper.min.js') }}"></script>
+        <script src="{{ asset('Front/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('Front/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('Front/js/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('Front/js/ajax-form.js') }}"></script>
+        <script src="{{ asset('Front/js/waypoints.min.js') }}"></script>
+        <script src="{{ asset('Front/js/jquery.counterup.min.js') }}"></script>
+        <script src="{{ asset('Front/js/imagesloaded.pkgd.min.js') }}"></script>
+        <script src="{{ asset('Front/js/scrollIt.js') }}"></script>
+        <script src="{{ asset('Front/js/jquery.scrollUp.min.js') }}"></script>
+        <script src="{{ asset('Front/js/wow.min.js') }}"></script>
+        <script src="{{ asset('Front/js/nice-select.min.js') }}"></script>
+        <script src="{{ asset('Front/js/jquery.slicknav.min.js') }}"></script>
+        <script src="{{ asset('Front/js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('Front/js/plugins.js') }}"></script>
+        <script src="{{ asset('Front/js/gijgo.min.js') }}"></script>
+
+        <!--contact js-->
+        <script src="{{ asset('Front/js/contact.js') }}"></script>
+        <script src="{{ asset('Front/js/jquery.ajaxchimp.min.js') }}"></script>
+        <script src="{{ asset('Front/js/jquery.form.js') }}"></script>
+        <script src="{{ asset('Front/js/jquery.validate.min.js') }}"></script>
+        <script src="{{ asset('Front/js/mail-script.js') }}"></script>
+
+        <script src="{{ asset('Front/js/main.js') }}"></script>
+    {% endblock %}
+
+    <style>
+
+        .popup_box {
+            background: #d598a3;
+        }
+        .boxed_btn_orange {
+
+            background: #4f3d40;
+        }
+        .header-area, .bradcam_area{
+            background: #d598a3;
+        }
+        .header-area .main-header-area.sticky {
+            background: #d598a3 !important;
+
+        }
+        footer {
+            background: #4f3d40;
+        }
+        .flaticon-user {
+            color: white;
+        }
+    </style>
+    </body>
+{% endif %}
+{% if is_granted('ROLE_ADMIN') and app.user%}
+    <!DOCTYPE html>
+    {% include '@Admin/Back/adminHomepage.html.twig' %}
+{% endif %}
+</html>
+
+

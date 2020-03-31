@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Modifier la catégorie {% endblock %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+ {% block bground %}
+ {% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1> Modifier une Catégorie</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Modifier" class="btn-info" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('categoriecollect_index') }}">Liste des Catégories</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    <br>
+{% endblock %}

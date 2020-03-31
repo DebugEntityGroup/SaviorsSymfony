@@ -1,0 +1,57 @@
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% extends 'layout.html.twig' %}
+{% endif %}
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% block bground %}
+    {% endblock %}
+{% endif %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <!--  Content Column -->
+            <div class="col-lg-8">
+                <!-- Title -->
+                <center><h1 class="mt-4">Description sur la Categorie</h1></center>
+                <br>
+                <br>
+                <br>
+                <!-- Author -->
+                <p class="lead">
+                    <a href="{{ path('categorie_index') }}" class="btn btn-info">Revenir a la liste</a>
+                </p>
+                <hr>
+                <p>Nom: {{ categorie.nom }}</p>
+                <hr>
+                <p class="lead">Description: {{ categorie.description }}</p>
+                <hr>
+                {{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-primary" value="Delete" data-toggle="modal" onclick="return confirm('tu est sur de supprimer cette categorie?')">
+                    Delete
+                </button>
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+        <br><br><br><br><br>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    {% if not app.user %} <br>
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        Sign in to view this content
+    {% endif %}
+    {% if not is_granted('ROLE_FOURN') %}
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        you're not supplier
+    {% endif %}
+{% endblock %}

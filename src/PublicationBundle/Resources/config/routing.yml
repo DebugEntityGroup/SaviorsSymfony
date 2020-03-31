@@ -1,0 +1,11 @@
+publication_publication:
+    resource: "@PublicationBundle/Resources/config/routing/publication.yml"
+    prefix:   /publication
+
+commentaire_publication:
+    resource: "@PublicationBundle/Resources/config/routing/commentaire.yml"
+    prefix:   /commentaire
+
+publication_homepage:
+    path:     /
+    defaults: { _controller: PublicationBundle:Default:index }

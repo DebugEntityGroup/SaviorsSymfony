@@ -1,0 +1,110 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Collectes {% endblock %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+    {% block bground %}
+    {% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% if is_granted('ROLE_ASSOC') %}
+    <div align = "right">
+    <a href="{{ path('collect_index') }}">
+        <button type="button" class="creercollecte">
+            Gérer mes Collectes
+        </button>
+    </a>
+    </div>
+    {% endif %}
+    <center>
+        <h2 class="contact-title" style="font-family: Poppins;">
+            <br><br>Collectes
+        </h2>
+    </center>
+    <center>
+        {% if not collectes|length==0 %}
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="post-container">
+                <div class="row">
+                    <section class="featured section-padding">
+                            <div class="row">
+                                {% for collect in collectes %}
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2" style="text-align: center;">
+                                        <div class="featured-box">
+                                            <figure>
+                                                <a href="{{ path('collect_details', { 'id': collect.id }) }}">
+                                                    <img src="{{ asset('') }}{{ vich_uploader_asset(collect, 'imageFile') }}" style = "width: 250px; height: 250px;"
+                                                         alt="{{ collect.image }}">
+                                                </a>
+                                            </figure>
+                                            <div class="content-wrapper">
+                                                <div class="feature-content">
+                                                    <h4><a href="{{  path('collect_details', { 'id': collect.id }) }}">{{ collect.nomCollecte }}</a></h4>
+                                                    <div class="meta-tag">
+                                                        <div class="user-name">
+                                                            <a href="#"><i class="lni-user"></i>{{ collect.budgetCollecte }} DT</a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                {% if is_granted('ROLE_ASSOC') and app.user.username == collect.user.username %}
+                                                <div class="listing-bottom clearfix">
+                                                    <div class="btn-group">
+                                                        <a href="{{ path('collect_edit', { 'id': collect.id }) }}"><button type="button" class="btn-info" style="font-family: Poppins;">Modifier</button></a>
+
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                                {% if not is_granted('ROLE_ASSOC') and app.user %}
+                                                <div class="listing-bottom clearfix">
+                                                    <div class="btn-group">
+                                                        <a href="{{ path('collect_details', { 'id': collect.id }) }}"><button type="button" class="btn btn-warning" style="font-family: Poppins;">Details</button></a>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp
+                                {% endfor %}
+                            </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endif %}
+        {% if collectes|length==0 %}
+            <h3>Aucune Collecte n'a été ajoutée</h3>
+        {% endif %}
+    </center>
+    {% if not app.user %}
+        <br><br><br><br><br><br>
+        <h1 style="font-family: Poppins;" align="center">
+            Connectez vous en tant qu'association pour continuer.
+        </h1>
+    {% endif %}
+    <style type = "text/css">
+        .creercollecte {
+            background-color: #4f3d40;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .creercollecte:hover {
+            background-color: #4f3516;
+            color: white;
+        }
+    </style>
+{% endblock %}

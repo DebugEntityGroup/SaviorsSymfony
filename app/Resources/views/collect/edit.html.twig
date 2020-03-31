@@ -1,0 +1,73 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Modifier une Collecte {% endblock %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+ {% block bground %}
+ {% endblock %}
+{% block content %}
+    {% if app.user.username == collect.user.username %}
+    {% if app.user and is_granted('ROLE_ASSOC') %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        <div align = "center">
+            <a href = "{{ path('collect_index') }}">
+                <input type = "submit" value = "Retour" class = "btn-info" style="height: 35px; font-family: Poppins;">
+            </a>
+        </div>
+    <h1>Modifier une Collecte</h1>
+
+    {{ form_start(edit_form) }}
+        <table>
+            <tr><td style="font-family: Poppins;">Nom de la Collecte</td><td>{{ form_widget(edit_form.nomCollecte, {'attr':{'style':'width:450px;'}}) }}</td></tr>
+            <tr><td style="font-family: Poppins;">Budget</td><td>{{ form_widget(edit_form.budgetCollecte, {'attr':{'style':'width:450px;'}}) }}</td></tr>
+            <tr><td style="font-family: Poppins;">Description</td><td>{{ form_widget(edit_form.descriptionCollecte, {'attr':{'style':'height:140px;width:450px;'}}) }}</td></tr>
+            <tr><td style="font-family: Poppins;">Catégorie</td><td>{{ form_widget(edit_form.categorieCollect, {'attr':{'style':'width:450px;'}}) }}</td></tr>
+            <tr><td style="font-family: Poppins;"></td><td>{{ form_widget(edit_form.imageFile) }}</td></tr>
+            <tr>
+                <td></td><td><input type="submit" value="Modifier" class = "btn-success" style="height: 35px; font-family: Poppins;"/></td>
+            </tr>
+        </table>
+    {{ form_end(edit_form) }}
+        <div align = "center">
+            <a href="{{ path('collect_index') }}">
+                <button class="listecollecte">
+                    Liste des Collectes
+                </button>
+            </a>
+        </div>
+    <br>
+    {% endif %}
+    {% endif %}
+    {% if app.user.username != collect.user.username %}
+        <h1>Vous ne pouvez pas modifier cette collecte car elle ne vous appartient pas.</h1>
+    {% endif %}
+    {% if not app.user %}
+    <br><br><br><br><br><br>
+    Connectez vous en tant qu'association pour continuer.
+    {% endif %}
+    {% if not is_granted('ROLE_ASSOC') and app.user%}
+    <br><br><br><br><br><br>
+    Cet espace est réservé uniquement pour les associations.
+    {% endif %}
+    <br>
+    <style type = "text/css">
+        .listecollecte {
+            background-color: #4f3d40;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .listecollecte:hover {
+            background-color: #4f3516;
+            color: white;
+        }
+    </style>
+{% endblock %}

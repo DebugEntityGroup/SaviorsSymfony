@@ -1,0 +1,28 @@
+raisons_index:
+    path:     /
+    defaults: { _controller: "ReclamationBundle:Raisons:index" }
+    methods:  GET
+
+raisons_show:
+    path:     /{typeRaison}/show
+    defaults: { _controller: "ReclamationBundle:Raisons:show" }
+    methods:  GET
+
+raisons_new:
+    path:     /new
+    defaults: { _controller: "ReclamationBundle:Raisons:new" }
+    methods:  [GET, POST]
+
+raisons_edit:
+    path:     /{typeRaison}/edit
+    defaults: { _controller: "ReclamationBundle:Raisons:edit" }
+    methods:  [GET, POST]
+
+raisons_delete:
+    path:     /{typeRaison}/delete
+    defaults: { _controller: "ReclamationBundle:Raisons:delete" }
+    methods:  DELETE
+
+raisons_supp:
+    path: /{typeRaison}/supprimer
+    controller: "ReclamationBundle:Raisons:supprimerRaison"

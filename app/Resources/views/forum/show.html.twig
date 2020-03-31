@@ -1,0 +1,103 @@
+{% extends 'layout.html.twig' %}
+ {% block bground %}
+ {% endblock %}
+
+
+
+{% block content %}
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+
+    <script src="{{ asset ('ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js') }}"></script>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+
+    <center><h2 class="contact-title">
+            <br><br>Forum</h2></center>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="post-container">
+                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                                        <div class="featured-box" align="center">
+                                            <table>
+                                            <tbody>
+
+                                            <tr>
+                                                <th> <h6>Sujet</h6></th>
+                                                <td style="align-content: center;font-size:2vw;"  ><h3>{{ forum.sujet }}</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <th><h6>Description</h6></th>
+                                                <td style="align-content: center;font-size:2vw;"><h3>{{ forum.description }}</h3></td>
+
+                                            </tr>
+                                            <div class="clearfix"></div>
+                                            </tbody>
+                                            </table>
+                                            <br>
+                                            <br>
+                                            {{ form_start(form) }}
+                                            <table>
+                                                <tr><td>
+                                            {{ form_widget(form.description) }}
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <td>
+
+                                                <input style="align-content: center;" type="submit" value="Commenter" class="btn btn-sm btn-outline-info" />
+                                                </td>
+                                            </tr>
+                                            </table>
+                                                {{ form_end(form) }}
+                                                    <div class="article-comments"></div>
+                                            {% for comment in comments %}
+                                                <table>
+                                                <td>
+                                                    {{ comment.description|raw }} </div>
+
+                                                </td> <td>
+                                            <div class="comment"></div>
+                                                        {{ comment.rating |rating(4, "fa-2x") }}
+
+                                        </td>
+                                                </table>
+
+                                        {%  if comments|length > 10 %}
+                                        <a href="{{ path('forum/bubble.html.twig') }}">
+
+                                        </a>
+                                        {% endif %}
+                                            {% endfor %}
+
+
+                    <br>
+                    <br>
+                                            </tr>
+                                            <tr>
+
+                                        </div>
+                                        </div>
+                                    </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                </div>
+    <ul>
+        <li>
+            <a href="{{ path('forum_new') }}">Create a new forum</a>
+        </li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

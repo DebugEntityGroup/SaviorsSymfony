@@ -1,0 +1,53 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Details Catégorie {% endblock %}
+ {% block bground %}
+ {% endblock %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+{% block content %}
+    {% if app.user and is_granted('ROLE_ASSOC') %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Details</h1>
+    <table>
+        <tbody>
+            <tr>
+                <th>Type de la Categorie</th>
+                <td>{{ categorieCollect.typeCategorie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('categoriecollect_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('categoriecollect_edit', { 'typeCategorie': categorieCollect.typeCategorie }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    <br>
+    {% endif %}
+    {% if not app.user %}
+        <br><br><br><br><br><br>
+        Connectez vous en tant qu'association pour continuer.
+    {% endif %}
+    {% if not is_granted('ROLE_ASSOC') and app.user%}
+        <br><br><br><br><br><br>
+        Cet espace est réservé uniquement pour les associations.
+    {% endif %}
+    <br>
+{% endblock %}

@@ -1,0 +1,50 @@
+produit_index:
+    path:     /
+    defaults: { _controller: "ProduitBundle:Produit:index" }
+    methods:  GET
+
+produit_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProduitBundle:Produit:show" }
+
+produit_new:
+    path:     /new
+    defaults: { _controller: "ProduitBundle:Produit:new" }
+    methods:  [GET, POST]
+
+produit_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProduitBundle:Produit:edit" }
+    methods:  [GET, POST]
+
+produit_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProduitBundle:Produit:delete" }
+    methods:  DELETE
+
+indexpanier:
+    path:     /panier
+    defaults: {_controller: "ProduitBundle:panier:panier" }
+panier:
+    path:     /panier/add/{id}
+    defaults: { _controller: "ProduitBundle:panier:addPanier" }
+    methods:  GET
+deletePanier:
+    path:     /panier/delete/{id}
+    defaults: { _controller: "ProduitBundle:panier:remove" }
+    methods:  GET
+ajax_search:
+    path:     /search
+    defaults: { _controller: "ProduitBundle:Produit:search" }
+
+add_comment:
+    path:     /addcomment
+    defaults: { _controller: ProduitBundle:Produit:addComment }
+
+delete_comment:
+    path:     /deletecomment/{id}
+    defaults: { _controller: ProduitBundle:Produit:deleteComment }
+
+mesproduits:
+    path: /mesproduits
+    controller: ProduitBundle:Produit:mesProduits

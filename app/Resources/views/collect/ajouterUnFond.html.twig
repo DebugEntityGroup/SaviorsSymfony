@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+{% block title %} Donation {{ collecteP.nomCollecte }} {% endblock %}
+    {% block bground %}
+    {% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+    <div align="left">
+    <img src="{{ asset('') }}{{ vich_uploader_asset(collecteP, 'imageFile')}}" alt="{{ collecteP.image }}"
+         style = "width: 250px; height: 250px;"><br><br>
+    <table>
+    <tr><th>Publié Par:</th><td><b>{{ collecteP.user.username }}</b></td></tr>
+    <tr><th>Titre de la Collecte:</th><td>{{ collecteP.nomCollecte }}</td></tr>
+    <tr><th>Description:</th><td>{{ collecteP.descriptionCollecte }}</td></tr>
+    <tr><th>Budget Demandé:</th><td>{{ collecteP.budgetCollecte }} TND</td></tr>
+    <tr><th>Fond Atteint:</th><td>{{ collecteP.nombreAtteint }} TND</td></tr>
+    <tr><th>Nombre de Participants:</th><td>{{ collecteP.nombreParticipantsCollecte }}</td></tr>
+    <tr><th></th><td></td></tr>
+    <tr><th>Sélectionner le montant:</th><td>{{ form_start(form) }} {{ form_widget(form.moneyDonated, {'attr':{'placeholder':'Donate'}}) }}</td></tr>
+    <tr><th></th><td><input type="submit" value = "Confirmer" class="btn-info"/></td></tr> {{ form_end(form) }}
+    </table><br>
+    </div>
+    <div align="left">
+        <h1 style="font-family: Poppins;">Dons Effectués pour cette Collecte</h1>
+        <table>
+        {% for donation in donations %}
+        {% if collecteP.id == donation.collectPending.id %}
+        <tr>
+           <td><b style="color: black;">{{ donation.user.username }}</b>: {{ donation.moneyDonated }} TND {{ donation.dateHour | date }}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        </table>
+    </div>
+    </div>
+
+{% endblock %}

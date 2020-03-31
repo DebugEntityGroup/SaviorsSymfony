@@ -1,0 +1,73 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Liste des Collectes {% endblock %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+ {% block bground %}
+ {% endblock %}
+{% block content %}
+    {% if app.user and is_granted('ROLE_ASSOC') %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <h1>Collecte</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ collect.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom de la collecte</th>
+                <td>{{ collect.nomCollecte }}</td>
+            </tr>
+            <tr>
+                <th>Budget</th>
+                <td>{{ collect.budgetCollecte }}</td>
+            </tr>
+            <tr>
+                <th>Fond Atteint</th>
+                <td>{{ collect.nombreAtteint }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ collect.descriptionCollecte }}</td>
+            </tr>
+            <tr>
+                <th>Nombre de Participants</th>
+                <td>{{ collect.nombreParticipantsCollecte }}</td>
+            </tr>
+            <tr>
+                <th>Actions</th>
+                <td>
+                    <a href="{{ path('collect_edit', { 'id': collect.id }) }}">
+                        <button class="btn-info">
+                            Modifier
+                        </button>
+                    </a>
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn-danger">
+                {{ form_end(delete_form) }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+{% endif %}
+    {% if not app.user %}
+        <br><br><br><br><br><br>
+        Connectez vous en tant qu'association pour continuer.
+    {% endif %}
+    {% if not is_granted('ROLE_ASSOC') and app.user%}
+        <br><br><br><br><br><br>
+        Cet espace est réservé uniquement pour les associations.
+    {% endif %}
+<br>
+{% endblock %}

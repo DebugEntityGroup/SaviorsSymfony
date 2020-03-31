@@ -1,0 +1,53 @@
+forum_index:
+  path:     /
+  defaults: { _controller: "ForumBundle:Forum:index" }
+  methods:  GET
+
+forum_show:
+  path:     /{id}/show
+  defaults: { _controller: "ForumBundle:Forum:show" }
+
+forum_new:
+  path:     /new
+  defaults: { _controller: "ForumBundle:Forum:new" }
+  methods:  [GET, POST]
+
+forum_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "ForumBundle:Forum:edit" }
+  methods:  [GET, POST]
+
+forum_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "ForumBundle:Forum:delete" }
+  methods:  DELETE
+
+pagination:
+    path:     /pagination
+    defaults: { _controller: "ForumBundle:Forum:pagination" }
+    methods:  GET
+
+firstindex:
+    path:     /firstindex
+    defaults: { _controller: "ForumBundle:Forum:firstindex" }
+    methods:  GET
+
+firstindext:
+  path: /findQuestionsByCat/{id}
+  defaults: { _controller: "ForumBundle:Forum:findQuestionsByCat" }
+
+mesforum:
+  path:     /mesforum
+  defaults: { _controller: "ForumBundle:Forum:mesforum" }
+  methods:  GET
+
+bubble:
+    path:     /bubble
+    defaults: { _controller: "ForumBundle:Forum:bubble" }
+    methods:  GET
+bubble2:
+      path:     /bubble2
+      defaults: { _controller: "ForumBundle:Forum:bubble" }
+      methods:  GET
+
+

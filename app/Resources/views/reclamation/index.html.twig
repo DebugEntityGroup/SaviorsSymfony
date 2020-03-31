@@ -1,0 +1,139 @@
+{% if app.user%}
+    {% extends 'layout.html.twig' %}
+{% endif %}
+{% block bground %}
+{% endblock %}
+{% block title %} Liste des Réclamations {% endblock %}
+    {% block content %}
+        {% if app.user %}
+            <br><br><br><br><br><br><br>
+            <h1>Recherche Reclamation par objet</h1>
+            {{ form(form) }}
+        <h2>Liste des Réclamations</h2>
+<br><br>
+
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    var searchRequest = null;
+                    $("#search").keyup(function() {
+                        var minlength = 1;
+                        var that = this;
+                        var value = $(this).val();
+                        var entitySelector = $("#entitiesNav").html('');
+                        if (value.length >= minlength ) {
+                            if (searchRequest != null)
+                                searchRequest.abort();
+                            searchRequest = $.ajax({
+                                type: "GET",
+                                url: "{{ path('ajax_search') }}",
+                                data: {
+                                    'q' : value
+                                },
+                                dataType: "text",
+                                success: function(msg){
+                                    //we need to check if the value is the same
+                                    if (value===$(that).val()) {
+                                        var result = JSON.parse(msg);
+                                        $.each(result, function(key, arr) {
+                                            $.each(arr, function(id, value) {
+                                                if (key === 'reclamation') {
+                                                    if (id !== 'error') {
+                                                        console.log(value[1]);
+                                                        entitySelector.append('<li><b>'+value[1]+'</b><a href="/detailedpost/'+id+'">'+'<img src="/uploads'+value[0]+'" style="width: 50px; height: 50px"/>'+'</a></li>');
+                                                    } else {
+                                                        entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+            </script>
+
+
+        <table class="table">
+            <thead>
+            <tr class="index">
+                <th>ID</th>
+                <th>Objet</th>
+                <th>Description</th>
+                 <th>Image</th>
+                
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for reclamation in result %}
+                {% if app.user.id == reclamation.user.id %}
+                <tr>
+                    <td>{{ reclamation.id }}</td>
+                    <td>{{ reclamation.objet }}</td>
+                    <td>{{ reclamation.description }}</td>
+
+
+                    <td>
+                        <ul>
+                            <li><a href="{{ path('reclamation_show', { 'id': reclamation.id }) }}"><img
+                                            class="img-fluid"
+                                            src="{{ asset('') }}{{ vich_uploader_asset(reclamation, 'imageFile') }}"
+                                            style="width: 100px; height: 100px;" alt="image"></a></li>
+                            <br> <br>
+
+                                <a href="{{ path('reclamation_edit', {'id': reclamation.id }) }}"><button type="button" class="btn btn-sm btn-outline-info" >Update</button></a>
+
+                                 <a href="{{ path('reclamation_delete', {'id': reclamation.id }) }}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+
+                              <a href="{{ path('reclamation_new', {'id': reclamation.id }) }}"><button type="button" class="btn btn-sm btn-outline-info" >view</button></a>
+                        </ul>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <br><br><br>
+            <style> th{
+                    padding: 10px
+                ; margin: 2px;
+                }
+            td{
+                padding: 10px;
+                font-family: "Yu Gothic UI Semilight";
+                font-size: 12pt;
+            }
+
+            .ajouter{
+                margin: 2px;
+                background-color: whitesmoke;
+                border-radius: 10%;
+                border: solid;
+                border-color: red;
+            }
+            h2{
+                padding: 20px;
+                color: black;
+            }
+                button{
+                    width: 60px;
+                    height: 30px;
+                }
+            </style>
+
+        {% endif %}
+        {% if not app.user %}
+        Connectez vous pour que vous puissiez gérer les Réclamations.<br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        {% endif %}
+        <div class="navigation">
+            {{ knp_pagination_render(result) }}
+        </div>
+    {% endblock %}
+

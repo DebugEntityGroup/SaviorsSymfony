@@ -1,0 +1,90 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Liste des Catégories {% endblock %}
+ {% block bground %}
+ {% endblock %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+{% block content %}
+    {% if app.user and is_granted('ROLE_ASSOC') %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div align = "right">
+        <a href="{{ path('categoriecollect_new') }}">
+            <button class="creercat">
+                Créer une nouvelle Catégorie
+            </button>
+        </a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="{{ path('collect_new') }}">
+            <button class="creercollect">
+                Créer une nouvelle Collecte
+            </button>
+        </a>
+    </div>
+    <h1>Liste des Catégories</h1>
+    <table border="2" style = "tab-size: 200px">
+        <thead>
+            <tr>
+                <th class="text-center" style="font-family: Poppins;">Type de la Catégorie</th>
+                <th class="text-center" style="font-family: Poppins;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorieCollect in categorieCollects %}
+            <tr>
+                <td class="text-center" style="font-family: Poppins;"><a href ="{{ path('collect_parcat',{'typeCategorie': categorieCollect.typeCategorie}) }}">{{ categorieCollect.typeCategorie }}</a></td>
+                <td class="text-center" style="font-family: Poppins;">
+                            <a href="{{ path('categoriecollect_edit', { 'typeCategorie': categorieCollect.typeCategorie }) }}">
+                                <button class="btn-success" style="font-family: Poppins;">
+                                Modifier
+                                </button>
+                            </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    {% endif %}
+    {% if not app.user %}
+        <br><br><br><br><br><br>
+        <h1 style="font-family: Poppins;" align="center">
+            Connectez vous en tant qu'association pour continuer.
+        </h1>
+    {% endif %}
+    {% if not is_granted('ROLE_ASSOC') and app.user%}
+        <br><br><br><br><br><br>
+        <h1 style="font-family: Poppins;" align="center">Cet espace est réservé uniquement pour les associations.</h1>
+    {% endif %}
+    <br>
+    <style type = "text/css">
+        .creercat {
+            background-color: #4f3d40;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .creercat:hover {
+            background-color: #4f3516;
+            color: white;
+        }
+        .creercollect {
+            background-color: #4a4f1f;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .creercollect:hover {
+            background-color: #4f4222;
+            color: white;
+        }
+    </style>
+{% endblock %}

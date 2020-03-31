@@ -1,0 +1,82 @@
+{% extends 'layout.html.twig' %}
+{% block bground %}
+    <div class="bradcam_area breadcam_bg">
+        <h3>Evenement</h3>
+    </div>
+{% endblock %}
+{% block content %}
+    <h1>{{ event.name }}</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ event.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ event.Lieu }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ event.Dateevent|date }}</td>
+            </tr>
+            <tr>
+                <th>Vos Avis </th>
+                <td>{{ event.moyenne }}</td>
+            </tr>
+
+            <tr>
+                <th>
+
+                    <a class="btn btn-info" style="border: none; background-color: #ff383d; color: white;" href="{{ path('event_interested', {'id': event.id}) }}">je suis intersse</a> </th>
+               Nombre :  {{ event.nbrInterest }}
+            </tr>
+        </tbody>
+    </table>
+Nouveau commentaire :
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Commenter" class="btn-info"/>
+    {{ form_end(form) }}
+
+
+liste des commetaires :
+    <ul>
+
+        {% for comment in comments %}
+
+            <li>
+               {{ comment.user.username}}
+            </li>
+            <li>
+                {{ comment.text}}
+            </li>
+
+        {% endfor %}
+
+    </ul>
+    Noter cet evennement sur 10 :
+
+
+
+    {{ form_start(formRating) }}
+    {{ form_widget(formRating) }}
+    <input type="submit" value="Envoyer note" class="btn-info"/>
+    {{ form_end(formRating) }}
+
+
+
+
+
+
+{% endblock %}

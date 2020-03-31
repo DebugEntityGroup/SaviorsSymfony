@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="360d8a8b-bdb7-4da8-b790-a65932fb7a71" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="feb461b9-795d-49c7-ab8a-6b259f565bce" />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="s doctrine:generate:entity " />
+      <command text="s doctrine:schema:update --force " />
+      <command text="s doctrine:generate:crud " />
+      <command text="s doctrine:generate:entity " />
+      <command text="s server:run " />
+      <command text="s doctrine:schema:update --force " />
+      <command text="php -v" />
+      <command text="s doctrine:generate:entity " />
+      <command text="s doctrine:schema:update --force " />
+      <command text="php -v" />
+      <command text="s generate:controller" />
+    </commandsHistory>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\wamp64\www\symfony\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/blackknight467/star-rating-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha-bundle" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1X1lZrfkpfqeKIvVOpqhqko9M65" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\symfony\src\AdminBundle\Resources\views\Back" />
+      <recent name="C:\wamp64\www\symfony\src\AssocBundle\Repository" />
+      <recent name="C:\wamp64\www\symfony\src\AssocBundle\Form" />
+      <recent name="C:\wamp64\www\symfony\src\AssocBundle\Entity" />
+      <recent name="C:\wamp64\www\symfony\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\symfony\src\CollecteBundle\Resources\config\routing" />
+      <recent name="C:\wamp64\www\symfony\src\CollecteBundle\Controller" />
+      <recent name="C:\wamp64\www\symfony\src\CollecteBundle\Repository" />
+      <recent name="C:\wamp64\www\symfony\src\CollecteBundle\Entity" />
+      <recent name="C:\wamp\www\symfony\web\Front\img\banner" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="composer.phar require  friendsofsymfony/user-bundle &quot;~2.0&quot;" />
+      <command value="php composer.phar require friendsofsymfony/user-bundle &quot;~2.0&quot;" />
+      <command value="composer.phar" />
+      <command value="sch" />
+      <command value="s doctrine:schema:update" />
+      <command value="s doctrine:generate:entities AssocBundle" />
+      <command value="updat" />
+      <command value="s doctrine:generate:crud" />
+      <command value="s fos:user:create sofien 123" />
+      <command value="s fos:user:create" />
+      <command value="fos:user:create sofien sofien@gmail.com 123" />
+      <command value="fos:user:create ahmed ahmed@gmail.com 456" />
+      <command value="s fos:user:create sofien sofien@gmail.com 123" />
+      <command value="s doctrine:generate:form" />
+      <command value="s doctrine:generate:form ForumPending" />
+      <command value="s doctrine:generate:form AssocBundle:ForumPending" />
+      <command value="s doctrine:generate:form AssocBundle:EventPending" />
+      <command value="c remove vich/uploader-bundle" />
+      <command value="s doctrine:generate:crud " />
+      <command value="s fos:user:create sofsup sofsup@gmail.com 123" />
+      <command value="s fos:user:promote sofsup ROLE_FOURN" />
+      <command value="s fos:user:demote sofsup ROLE_FOURN" />
+      <command value="s fos:user:promote sofsup ROLE_ASSOC" />
+      <command value="c require vich/uploader-bundle" />
+      <command value="s fos:user:promote sofien ROLE_MEMBRE" />
+      <command value="s fos:user:demote sofien ROLE_MEMBRE" />
+      <command value="s fos:user:demote sofien ROLE_MEMBER" />
+      <command value="s fos:user:promote sofien ROLE_ADMIN" />
+      <command value="s doctrine:generate:form CollecteBundle:Commentaire" />
+      <command value="s fos:user:create assoc assoc@gmail.com 123" />
+      <command value="s fos:user:promote assoc ROLE_ASSOC" />
+      <command value="s fos:user:create sof sof@gmail.com 123" />
+      <command value="s fos:user:promote sof ROLE_ADMIN" />
+      <command value="s fos:user:create member member@gmail.com 123" />
+      <command value="s fos:user:promote member ROLE_MEMBER" />
+      <command value="s doctrine:generate:entity" />
+      <command value="s doctrine:generate:form CollecteBundle:Don" />
+      <command value="s doctrine:generate:entity UserBundle:User" />
+      <command value="s fos:user:create assoc2 assoc2@gmail.com 123" />
+      <command value="s fos:user:promote assoc2 ROLE_ASSOC" />
+      <command value="s doctrine:database:create" />
+      <command value="c dump-autoload" />
+      <command value="s generate:bundle" />
+      <command value="s fos:user:promote ahmed ROLE_ADMIN" />
+      <command value="s cache:clear" />
+      <command value="s fos:user:create ahmed ahmed@gmail.com 123" />
+      <command value="s doctrine:schema:update --force" />
+      <command value="s server:run" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="360d8a8b-bdb7-4da8-b790-a65932fb7a71" name="Default Changelist" comment="" />
+      <created>1580221540518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580221540518</updated>
+      <workItem from="1580221548547" duration="255000" />
+      <workItem from="1580222172621" duration="4474000" />
+      <workItem from="1580300206570" duration="7443000" />
+      <workItem from="1580424239097" duration="838000" />
+      <workItem from="1580644124896" duration="1056000" />
+      <workItem from="1580749319306" duration="756000" />
+      <workItem from="1581274891654" duration="3385000" />
+      <workItem from="1581412877282" duration="43407000" />
+      <workItem from="1581506442355" duration="2637000" />
+      <workItem from="1581510494688" duration="41065000" />
+      <workItem from="1581601404782" duration="1220000" />
+      <workItem from="1581612622144" duration="2442000" />
+      <workItem from="1581618184264" duration="3022000" />
+      <workItem from="1581668466443" duration="2479000" />
+      <workItem from="1581772697162" duration="20181000" />
+      <workItem from="1581857332803" duration="13428000" />
+      <workItem from="1581872282654" duration="6022000" />
+      <workItem from="1582010137698" duration="71807000" />
+      <workItem from="1582317263423" duration="14312000" />
+      <workItem from="1582394008173" duration="386000" />
+      <workItem from="1582394522622" duration="11000" />
+      <workItem from="1582394534588" duration="6695000" />
+      <workItem from="1582450669171" duration="243000" />
+      <workItem from="1582450915811" duration="21313000" />
+      <workItem from="1582528122342" duration="15419000" />
+      <workItem from="1582635794867" duration="85414000" />
+      <workItem from="1582993955788" duration="9555000" />
+      <workItem from="1583222689976" duration="2019000" />
+      <workItem from="1583336016364" duration="8926000" />
+      <workItem from="1583505131165" duration="10904000" />
+      <workItem from="1584146074873" duration="603000" />
+      <workItem from="1584480291887" duration="1303000" />
+      <workItem from="1584555206501" duration="787000" />
+      <workItem from="1584660979398" duration="6845000" />
+      <workItem from="1584808813979" duration="5350000" />
+      <workItem from="1585628782937" duration="652000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="313" y="63" key="FileChooserDialogImpl" timestamp="1584146608919">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="313" y="63" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584146608919" />
+    <state x="184" y="6" key="SettingsEditor" timestamp="1584146186210">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1584146186210" />
+    <state x="384" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1584146124433">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="384" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1584146124433" />
+  </component>
+</project>

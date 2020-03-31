@@ -1,0 +1,115 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Liste des Collectes {% endblock %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+ {% block bground %}
+ {% endblock %}
+{% block content %}
+    {% if app.user and is_granted('ROLE_ASSOC') %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        <div align = "right">
+        <a href="{{ path('collect_new') }}">
+            <button class="creercollecte">
+            Créer une nouvelle Collecte
+            </button>
+        </a>
+            &nbsp;&nbsp;&nbsp;
+        <a href="{{ path('categoriecollect_new') }}">
+            <button class="creercat">
+            Créer une nouvelle Catégorie
+            </button>
+        </a>
+        </div>
+    {% if collects|length!=0 %}
+    <h1>Liste des Collectes</h1>
+    {% endif %}
+    {% if collects|length!=0 %}
+    <table border="2" style = "tab-size: 200px">
+        <thead>
+            <tr>
+                <th class="text-center" style="font-family: Poppins;">Nom de la Collecte</th>
+                <th class="text-center" style="font-family: Poppins;">Budget</th>
+                <th class="text-center" style="font-family: Poppins;">Fond Atteint</th>
+                <th class="text-center" style="font-family: Poppins;">Description</th>
+                <th class="text-center" style="font-family: Poppins;">Nombre de Participants</th>
+                <th class="text-center" style="font-family: Poppins;">Image</th>
+                <th class="text-center" style="font-family: Poppins;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for collect in collects %}
+            {% if app.user.username == collect.user.username %}
+            <tr>
+                <td class="text-center" style="font-family: Poppins;">{{ collect.nomCollecte }}</td>
+                <td class="text-center" style="font-family: Poppins;">{{ collect.budgetCollecte }}</td>
+                <td class="text-center" style="font-family: Poppins;">{{ collect.nombreAtteint }}</td>
+                <td class="text-center" style="font-family: Poppins;">{{ collect.descriptionCollecte }}</td>
+                <td class="text-center" style="font-family: Poppins;">{{ collect.nombreParticipantsCollecte }}</td>
+                <td><img src="{{ asset('') }}{{ vich_uploader_asset(collect, 'imageFile') }}" style = "width: 200px; height: 200px;" alt="image"></td>
+                <td class="text-center" style="font-family: Poppins;">
+                            <a href="{{ path('collect_edit', { 'id': collect.id }) }}">
+                                <button class="btn-success" style="font-family: Poppins;">
+                                Modifier
+                                </button>
+                            </a>
+                            <a href="{{ path('collect_supprimer', { 'id': collect.id }) }}">
+                                <button class="btn-danger" style="font-family: Poppins;">
+                                Supprimer
+                                </button>
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <br>
+    {% endif %}
+    {% if collects|length==0 %}<br>
+    <h3 style="font-family: Poppins;" align="left">Aucune collecte n'a encore été ajoutée.</h3>
+    {% endif %}
+    {% if not app.user %}
+        <br><br><br><br><br><br>
+        <h1 style="font-family: Poppins;" align="center">
+        Connectez vous en tant qu'association pour continuer.
+        </h1>
+    {% endif %}
+    {% if not is_granted('ROLE_ASSOC') and app.user%}
+        <br><br><br><br><br><br>
+        <h1 style="font-family: Poppins;" align="center">Cet espace est réservé uniquement pour les associations.</h1>
+    {% endif %}
+    <br>
+    <style type = "text/css">
+        .creercollecte {
+            background-color: #4f3d40;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+            border-collapse: inherit;
+        }
+        .creercollecte:hover {
+            background-color: #4f3516;
+            color: white;
+        }
+        .creercat {
+            background-color: #4a4f1f;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .creercat:hover {
+            background-color: #4f4222;
+            color: white;
+        }
+    </style>
+{% endblock %}

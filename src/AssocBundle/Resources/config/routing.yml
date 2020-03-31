@@ -1,0 +1,6 @@
+assoc_homepage:
+    path:     /
+    defaults: { _controller: AssocBundle:Default:index }
+assoc_event:
+    resource: "@AssocBundle/Resources/config/routing/event.yml"
+    prefix:   /event

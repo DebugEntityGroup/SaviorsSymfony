@@ -1,0 +1,106 @@
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% extends 'layout.html.twig' %}
+{% endif %}
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% block bground %}
+
+    {% endblock %}
+{% endif %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+
+    <center><h2 class="contact-title">
+            <br><br>Liste des Categorie </h2></center>
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="#"> <span class="fa arrow"></span></a>
+
+                    <ul class="nav nav-second-level" id="entitiesNav">
+                    </ul>
+                </li>
+            </ul>
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="post-container">
+                        <div class="row">
+
+                            <section class="featured section-padding">
+                                <div class="container">
+                                    <div class="row">
+                                        {% for categorie in categories %}
+
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                                            <div class="featured-box">
+                                                <div class="content-wrapper">
+                                                    <div class="feature-content">
+                                                        <h4>
+                                                            <a href="{{ path('categorie_show', { 'nom': categorie.nom }) }}">{{ categorie.nom }}</a>
+                                                        </h4>
+                                                        <p class="listing-tagline">{{ categorie.description|trim }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="listing-bottom clearfix">
+                                                    <div class="btn-group">
+
+                                                        <a href="{{ path('categorie_edit', { 'nom': categorie.nom }) }}">
+                                                            <button type="button" class="btn btn-sm btn-outline-info">
+                                                                Update
+                                                            </button>
+                                                        </a>
+                                                        <a href="{{ path('categorie_show', { 'nom': categorie.nom }) }}">
+                                                            <button type="button" class="btn btn-sm btn-outline-danger">
+                                                                View
+                                                            </button>
+                                                        </a>
+<br><br><br><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+
+
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="{{ path('categorie_new') }}">
+                <button type="button" class="btn btn-primary">Crée une nouvelle Categorie</button>
+            </a>
+        </li>
+    </ul>
+
+    {% if not app.user %} <br>
+        <br>
+        <br>
+        <br><br><br><br>
+        Sign in to view this content
+    {% endif %}
+    {% if not is_granted('ROLE_FOURN') %}
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        you're not supplier
+    {% endif %}
+{% endblock %}

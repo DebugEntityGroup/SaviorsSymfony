@@ -1,0 +1,80 @@
+admin_homepage:
+    path:     /
+    defaults: { _controller: AdminBundle:Default:index }
+
+admin_home:
+    path: /admin
+    controller: AdminBundle:Admin:adminHomepage
+
+admin_user:
+    path: /admin/users
+    controller: AdminBundle:Admin:adminUser
+
+admin_publications:
+    path: /admin/publications
+    controller: AdminBundle:Admin:adminPublication
+admin_forums:
+    path: /admin/forums
+    controller: AdminBundle:Admin:listeForumsPendingAdmin
+
+admin_event:
+    path: /admin/events
+    controller: AdminBundle:Admin:listeEventsPendingAdmin
+
+supprimer_forumAdmin:
+    path: /admin/refus/{id}
+    controller: AdminBundle:Admin:supprimerForum
+
+confirmer_forumAdmin:
+    path: /admin/confirm/{id}
+    controller: AdminBundle:Admin:forumConfirmed
+
+supprimer_eventAdmin:
+    path: /admin/event/refus/{id}
+    controller: AdminBundle:Admin:supprimerEvent
+
+confirmer_eventAdmin:
+    path: /admin/event/confirm/{id}
+    controller: AdminBundle:Admin:eventConfirmed
+
+admin_collecte:
+    path: /admin/collectspending
+    controller: AdminBundle:Admin:listeCollectePendingAdmin
+
+supprimer_collecteAdmin:
+    path: /admin/collecte/refus/{id}
+    controller: AdminBundle:Admin:supprimerCollecte
+
+confirmer_collecteAdmin:
+    path: /admin/collecte/confirm/{id}
+    controller: AdminBundle:Admin:collecteConfirmed
+
+delete_user:
+    path: /admin/delete/user/{id}
+    controller: AdminBundle:Admin:deleteUser
+admin_reclamation:
+    path: /admin/reclamations
+    controller: AdminBundle:Admin:listeReclamationsAdmin
+
+supprimer_reclamationAdmin:
+    path: /admin/reclamation/refus/{id}
+    controller: AdminBundle:Admin:supprimerReclamation
+
+confirmer_reclamationAdmin:
+    path: /admin/reclamation/confirm/{id}
+    controller: AdminBundle:Admin:reclamationConfirmed
+
+admin_produits:
+    path: /admin/produits
+    controller: AdminBundle:Admin:listeProduitsPendingAdmin
+supprimer_produitAdmin:
+    path: /admin/produit/refus/{id}
+    controller: AdminBundle:Admin:supprimerProduit
+
+confirmer_produitAdmin:
+    path: /admin/produit/confirm/{id}
+    controller: AdminBundle:Admin:produitConfirmed
+
+all_collects:
+    path: /admin/allcollects
+    controller: AdminBundle:Admin:getAllCollects

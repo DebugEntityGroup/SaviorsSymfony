@@ -1,0 +1,92 @@
+saviors_homepage:
+    path:     /
+    defaults: { _controller: SaviorsBundle:Default:index }
+
+about:
+    path: /about
+    controller: SaviorsBundle:User:about
+
+news_set_like_status:
+    path: /news/set-like-status/{id}
+    controller: SaviorsBundle:User:setLikeStatus
+
+news:
+    path: /news
+    controller: SaviorsBundle:User:news
+
+user_logout:
+    path: /logout
+
+contact:
+    path: /contact
+    controller: SaviorsBundle:User:contact
+
+
+admin_homepage:
+    path: /adminn
+    controller: SaviorsBundle:Admin:admin
+
+notfound:
+    path: /notfound
+    controller: SaviorsBundle:Admin:notfound
+
+alerts:
+    path: /alerts
+    controller: SaviorsBundle:Admin:alerts
+
+blank:
+    path: /blank
+    controller: SaviorsBundle:Admin:blank
+
+buttons:
+    path: /buttons
+    controller: SaviorsBundle:Admin:buttons
+
+charts:
+    path: /charts
+    controller: SaviorsBundle:Admin:charts
+
+copycontent:
+    path: /copycontent
+    controller: SaviorsBundle:Admin:copycontent
+
+datatables:
+    path: /datatables
+    controller: SaviorsBundle:Admin:datatables
+
+dropdowns:
+    path: /dropdowns
+    controller: SaviorsBundle:Admin:dropdowns
+
+forms:
+    path: /forms
+    controller: SaviorsBundle:Admin:forms
+
+loginadmin:
+    path: /loginadmin
+    controller: SaviorsBundle:Admin:loginadmin
+
+modals:
+    path: /modals
+    controller: SaviorsBundle:Admin:modals
+
+popovers:
+    path: /popovers
+    controller: SaviorsBundle:Admin:popovers
+
+progress-bar:
+    path: /progress-bar
+    controller: SaviorsBundle:Admin:progressbar
+
+registeradmin:
+    path: /registeradmin
+    controller: SaviorsBundle:Admin:registeradmin
+
+simple-tables:
+    path: /simple-tables
+    controller: SaviorsBundle:Admin:simpletables
+
+ui-colors:
+    path: /ui-colors
+    controller: SaviorsBundle:Admin:uicolors
+

@@ -1,0 +1,86 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <style>
+        body {
+            background-color: #d598a3;
+            opacity: 20%;
+        }
+    </style>
+{% endblock %}
+{% block header %}{% endblock %}
+{% block title %}Connexion{% endblock %}
+{% block bground %}
+    <div align="center">
+    <br><br>
+<div class="logo-img" align="center">
+    <a href="{{ path('saviors_homepage') }}">
+        <img src="{{ asset('Front/img/logosavior.png') }}" alt="Saviors" style = "width: 200px; height: 120px;">
+    </a>
+</div>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card bg-light">
+            <div class="card-body">
+                {% if not app.user %}
+                <h1 class="text-center">Connexion</h1>
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+    <input placeholder="Nom d'utilisateur" type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" required="required" autocomplete="username" />
+<br>
+    <input placeholder="Mot de Passe" type="password" id="password" name="_password" class="form-control" required="required" autocomplete="current-password" />
+<br>
+    <button class="btn btn-primary btn-block">Se Connecter</button>
+</form><br>
+<a href="{{ path('fos_user_registration_register') }}">
+                    <center><h5 style="color:#0069d9;">S'inscrire</h5></center>
+                    </a>
+{% endif %}
+{% if app.user %}
+                    <h3 align="center">Vous êtes déjà connecté.</h3>
+{% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+    {% block footer %}{% endblock %}
+    {% block underfooter %} <br><br><br><br><br>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="text-center" style="color: white;">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            Tous droits réservés | Réalisé avec
+                            <i class="fa fa-heart-o" aria-hidden="true"></i> par
+                            <strong>
+                            <a href="{{path('about')}}" target="_blank" style="color: #d598a3;">
+                                Debug Entity
+                            </a>
+                            </strong>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    <style>
+        .card-body {
+            height: 300px;
+        }
+        .copy-right_text {
+            background-color: #4f3d40;
+            height: 48.5px;
+        }
+    </style>
+</div>
+{% endblock %}

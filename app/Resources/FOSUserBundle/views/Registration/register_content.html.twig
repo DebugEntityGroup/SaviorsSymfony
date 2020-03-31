@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <style>
+        body {
+            background-color: #d598a3;
+            opacity: 20%;
+        }
+    </style>
+{% endblock %}
+{% block header %}{% endblock %}
+{% block title %}Inscription{% endblock %}
+{% block bground %}
+    <div class="logo-img" align="center">
+        <a href="{{ path('saviors_homepage') }}">
+            <img src="{{ asset('Front/img/logosavior.png') }}" alt="Saviors" style = "width: 200px; height: 100px;">
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    {% if not app.user %}
+                    <h1 class="text-center">Inscription</h1>
+                    {{ form_start(form) }}
+                    {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder':'Nom d\'utilisateur'}}) }}<br>
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder':'Adresse Email'}}) }}<br>
+                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder':'Mot de Passe'}}) }}<br>
+                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder':'Confirmer Mot de Passe'}}) }}<br>
+                    {{ form_widget(form.roles, {'attr': {'align': 'center', 'class':'form-control-lg'}}) }}
+                    <div class="g-reCAPTCHA" data-sitekey="6LdDi9wUAAAAAJqfdZfmA4G4cPBNh9vZBptBkhr0"></div>
+                    <button class="btn btn-primary btn-block">S'inscrire</button>
+                    {{ form_end(form) }}<br>
+                    <a href="{{ path('fos_user_security_login') }}">
+                    <center><h5 style="color:#0069d9;">Se Connecter</h5></center>
+                    </a>
+                    {% endif %}
+                    {% if app.user %}
+                        <h3 align="center">Vous êtes déjà connecté.</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block footer %}{% endblock %}
+    <br>
+    {% block underfooter %}
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="text-center" style="color: white;">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            Tous droits réservés | Réalisé avec
+                            <i class="fa fa-heart-o" aria-hidden="true"></i> par
+                            <strong>
+                                <a href="{{path('about')}}" target="_blank" style="color: #d598a3;">
+                                    Debug Entity
+                                </a>
+                            </strong>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    <style>
+        .copy-right_text {
+            background-color: #4f3d40;
+            height: 41px;
+        }
+    </style>
+{% endblock %}

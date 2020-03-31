@@ -1,0 +1,32 @@
+reclamation_index:
+    path:     /
+    defaults: { _controller: "ReclamationBundle:Reclamation:index" }
+
+reclamation_show:
+    path:     /{id}/show
+    defaults: { _controller: "ReclamationBundle:Reclamation:show" }
+    methods:  GET
+
+reclamation_new:
+    path:     /new
+    defaults: { _controller: "ReclamationBundle:Reclamation:new" }
+    methods:  [GET, POST]
+
+reclamation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ReclamationBundle:Reclamation:edit" }
+    methods:  [GET, POST]
+
+reclamation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ReclamationBundle:Reclamation:delete" }
+
+
+ajax_search:
+    path:     /search
+    defaults: { _controller: "ReclamationBundle:Reclamation:recherche" }
+
+
+
+
+

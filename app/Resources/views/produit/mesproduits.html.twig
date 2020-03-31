@@ -1,0 +1,115 @@
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% extends 'layout.html.twig' %}
+{% endif %}
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% block bground %}
+
+    {% endblock %}
+{% endif %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% if is_granted('ROLE_FOURN') %}
+    <center><h2 class="contact-title">
+            <br><br>Liste des Produits </h2></center>
+    {% endif %}
+    <div class="album py-5 bg-light">
+    <ul class="nav" id="side-menu">
+        <li>
+            <a href="#"> <span class="fa arrow"></span></a>
+
+            <ul class="nav nav-second-level" id="entitiesNav">
+            </ul>
+        </li>
+    </ul><br><br><br><br>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="post-container">
+                <div class="row">
+                    <section class="featured section-padding">
+                        <div class="container">
+                            <div class="row">
+                                {% for produit in produits %}
+                                    {% if app.user.id == produit.user.id %}
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                                        <div class="featured-box">
+                                            <figure>
+                                                <a href="{{ path('produit_show', { 'id': produit.id }) }}"><img
+                                                            class="img-fluid"
+                                                            src="{{ asset('') }}{{ vich_uploader_asset(produit, 'imageFile') }}"
+                                                            style="width: 200px; height: 200px;" alt="image"></a>
+                                            </figure>
+                                            <div class="content-wrapper">
+                                                <div class="feature-content">
+                                                    <h4>
+                                                        <a href="{{ path('produit_show', { 'id': produit.id }) }}">{{ produit.nom }}</a>
+                                                    </h4>
+                                                    <p class="listing-tagline">{{ produit.description|trim }}</p>
+                                                    <p class="listing-tagline">{{ produit.categorie.nom }}</p>
+                                                    <div class="meta-tag">
+                                                        <div class="user-name">
+                                                            <a href="#"><i class="lni-user"></i>{{ produit.prix }} DNT</a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="listing-bottom clearfix">
+                                                    <div class="btn-group">
+{% if is_granted('ROLE_FOURN') %}
+                                                        <a href="{{ path('produit_edit', { 'id': produit.id }) }}">
+                                                            <button type="button" class="btn btn-sm btn-outline-info">
+                                                                Update
+                                                            </button>
+                                                        </a>
+                                                        {% endif %}
+                                                        {% if not is_granted('ROLE_FOURN') %}
+                                                        <a href="{{ path('panier',{'id':produit.id}) }}">
+                                                            <button type="button"
+                                                                    class="btn btn-sm btn-outline-primary">Commander
+                                                            </button>
+                                                        </a>
+                                                            {% endif %}
+                                                        <a href="{{ path('produit_show', { 'id': produit.id }) }}">
+                                                            <button type="button" class="btn btn-sm btn-outline-danger">
+                                                                View
+                                                            </button>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    {% if is_granted('ROLE_FOURN') and app.user %}
+    <ul>
+        <li>
+            <a href="{{ path('produit_new') }}">
+                <button type="button" class="btn btn-primary">Crée un nouveau produit</button>
+            </a>
+        </li>
+    </ul>
+    {% endif %}
+    {% if not app.user %} <br>
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        Sign in to view this content
+    {% endif %}
+
+{% endblock %}

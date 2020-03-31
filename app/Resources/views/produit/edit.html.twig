@@ -1,0 +1,56 @@
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% extends 'layout.html.twig' %}
+{% endif %}
+{% if app.user and is_granted('ROLE_FOURN') %}
+    {% block bground %}
+    {% endblock %}
+{% endif %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center><h2 class="contact-title">
+            <br><br>Modifier des Produits </h2></center>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form.nom,{'attr':{'type':'text','class':'form-control','placeholder':'Nom...'}}) }}
+    <br> <br> <br>
+    {{ form_widget(edit_form.description,{'attr':{'type':'textarea','class':'form-control','placeholder':'Description...'}}) }}
+    <br> <br> <br>
+    {{ form_widget(edit_form.prix,{'attr':{'type':'text','class':'form-control','placeholder':'Prix...'}}) }}
+    <br> <br> <br>
+    {{ form_widget(edit_form.categorie,{'attr':{'type':'text','class':'form-control','placeholder':'Categorie...'}}) }}
+    <br> <br> <br>
+    {{ form_widget(edit_form.imageFile,{'attr':{'type':'text','class':'form-control','placeholder':'Photo...'}}) }}
+    <br> <br> <br>
+
+    <center> <input type="submit" value="Edit" class="btn btn-common"  />  </center>
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('produit_index') }}"><button type="button" class="btn btn-primary">Revenir a la liste des produit</button></a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn-warning" onclick="return confirm('tu est sur de supprimer ce produit?')">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+    {% if not app.user %} <br>
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        Sign in to view this content
+    {% endif %}
+    {% if not is_granted('ROLE_FOURN') %}
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br>
+        you're not supplier
+    {% endif %}
+{% endblock %}

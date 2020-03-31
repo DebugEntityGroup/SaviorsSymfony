@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+{% block title %} Collecte {{ collecteP.nomCollecte }} {% endblock %}
+    {% block bground %}
+    {% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div align="center">
+    <img src="{{ asset('') }}{{ vich_uploader_asset(collecteP, 'imageFile')}}" alt="{{ collecteP.image }}"
+         style = "width: 250px; height: 250px;"><br><br>
+    <table>
+    <tr><th>Publié Par:</th><td><b>{{ collecteP.user.username }}</b></td></tr>
+    <tr><th>Titre de la Collecte:</th><td>{{ collecteP.nomCollecte }}</td></tr>
+    <tr><th>Description:</th><td>{{ collecteP.descriptionCollecte }}</td></tr>
+    <tr><th>Budget Demandé:</th><td>{{ collecteP.budgetCollecte }} TND</td></tr>
+    <tr><th>Fond Atteint:</th><td>{{ collecteP.nombreAtteint }} TND</td></tr>
+    <tr><th>Nombre de Participants:</th><td>{{ collecteP.nombreParticipantsCollecte }}</td></tr>
+    <tr><th></th><td><a href = "{{ path('faireundon', {'id': collecteP.id}) }}"><button class="btn btn-warning">Faire un Don</button></a></td></tr>
+    <tr><th>Commentaire:</th><td>{{ form_start(form) }} {{ form_widget(form.contenu, {'attr':{'placeholder':'Publier un CommentaireF'}}) }}</td></tr>
+    <tr><th></th><td><input type="submit" value = "Commenter" class="btn-info"/></td></tr> {{ form_end(form) }}
+    </table><br>
+    </div>
+    {% if app.user and not is_granted('ROLE_FOURN')%}
+    <div align = "left">
+        <table>
+            <h3 style="font-family: Poppins;">Liste des Commentaires:</h3><br>
+            {% for comment in comments %}
+            <tr>
+                   <th> Publié par {{ comment.user.username }}:<br> </th>
+            </tr>
+            <tr>
+                <td> {{ comment.contenu }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+    {% if not app.user %}
+    <h3 style="font-family: Poppins;">Connectez vous pour laisser un commentaire</h3>
+    {% endif %}
+{% endblock %}

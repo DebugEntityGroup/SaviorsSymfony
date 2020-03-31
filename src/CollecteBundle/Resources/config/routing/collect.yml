@@ -1,0 +1,45 @@
+collect_index:
+    path:     /
+    defaults: { _controller: "CollecteBundle:Collect:index" }
+    methods:  GET
+
+collect_show:
+    path:     /{id}/show
+    defaults: { _controller: "CollecteBundle:Collect:show" }
+    methods:  GET
+
+collect_new:
+    path:     /new
+    defaults: { _controller: "CollecteBundle:Collect:new" }
+    methods:  [GET, POST]
+
+collect_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CollecteBundle:Collect:edit" }
+    methods:  [GET, POST]
+
+collect_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CollecteBundle:Collect:delete" }
+    methods:  DELETE
+
+collect_supprimer:
+    path: /delete/{id}
+    controller: "CollecteBundle:Collect:supprimerCollect"
+
+collect_liste:
+    path: /allCollects
+    controller: "CollecteBundle:Collect:listeCollecte"
+    methods: GET
+
+collect_details:
+    path: /details/{id}
+    controller: "CollecteBundle:Collect:detailsCollecte"
+
+collect_parcat:
+    path: /categorie/{typeCategorie}
+    controller: "CollecteBundle:Collect:showByCat"
+
+faireundon:
+    path: /details/donate/{id}
+    controller: "CollecteBundle:Collect:faireUnDon"

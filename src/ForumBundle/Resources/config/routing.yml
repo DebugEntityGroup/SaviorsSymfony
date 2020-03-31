@@ -1,0 +1,16 @@
+forum_homepage:
+    path:     /
+    defaults: { _controller: ForumBundle:Default:index }
+
+forum_forum:
+        resource: "@ForumBundle/Resources/config/routing/forum.yml"
+        prefix:   /forum
+
+forum_Categorieforum:
+    resource: "@ForumBundle/Resources/config/routing/Categorieforum.yml"
+    prefix:   /Categorie
+
+Commentaire:
+    resource: "@ForumBundle/Resources/config/routing/CommentaireF.yml"
+    prefix:   /CommentaireF
+

@@ -1,0 +1,60 @@
+{% extends 'layout.html.twig' %}
+{% block bground %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}
+{% block content %}
+    {% if app.user and is_granted('ROLE_ASSOC') %}
+    <div align="right">
+    <a href="{{ path('event_index') }}">
+        <button class="listeevent">
+            Liste des Evenements
+        </button>
+    </a>
+    </div>
+    <h1>Créer un Evenement</h1>
+        <table>
+    {{ form_start(form) }}
+
+        <tr><td>Nom de l'évenement</td><td>{{ form_widget(form.name, {'attr':{'style':'width:450px;'}}) }}</td></tr>
+        <tr><td>Description</td><td>{{ form_widget(form.description, {'attr':{'style':'width:450px; height:100px;'}}) }}</td></tr>
+        <tr><td>Lieu</td><td>{{ form_widget(form.Lieu, {'attr':{'style':'width:450px;'}}) }}</td></tr>
+        <tr><td>Date</td><td>{{ form_widget(form.dateevent, {'attr':{'style':'width:450px;'}}) }}</td></tr>
+        <tr><td>Image</td><td>{{ form_widget(form.imageFile) }}</td></tr>
+        <tr><td></td><td><input type="submit" value="Créer" class="btn-success" style="font-family: Poppins;"/></td></tr>
+    {{ form_end(form) }}
+        </table>
+    {% endif %}
+    {% if app.user and not is_granted('ROLE_ASSOC') %}
+    Cet espace est réservé uniquement pour les associations.
+    {% endif %}
+    {% if not app.user %}
+    <br><br><br><br><br><br>
+    Connectez vous en tant qu'association pour continuer.
+    {% endif %}
+    <style type = "text/css">
+        .listeevent {
+            background-color: #4f3d40;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .listeevent:hover {
+            background-color: #4f3516;
+            color: white;
+        }
+        .listeevent {
+            background-color: #4a4f1f;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .listeevent:hover {
+            background-color: #4f4222;
+            color: white;
+        }
+    </style>
+{% endblock %}

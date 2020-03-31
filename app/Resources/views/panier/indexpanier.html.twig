@@ -1,0 +1,228 @@
+{% extends 'layout.html.twig' %}
+   {% block bground %}
+
+   {% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <center><h2 class="contact-title">
+            <br><br>Panier</h2></center>
+    <style>
+        .image_style {
+            border: 1px solid var(--heading-color);
+            width: 100px;
+            height: 100px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .cart_total {
+            background-color: #17a2b8;
+            color: #fff;
+            font-size: 26px;
+            padding: 23px 192px 22px;
+            font-family: var(--body-font);
+            text-transform: capitalize;
+        }
+
+        .padding-ul {
+            padding: 37px 0 35px;
+            list-style-type: none;
+
+        }
+
+        .padding-li {
+            font-size: 16px;
+            padding-bottom: 22px;
+            text-transform: capitalize;
+        }
+
+        .span-right {
+            float: right;
+        }
+
+        .order-total {
+            border-bottom: 1px solid #ebebeb;
+            margin-bottom: 18px;
+            padding-bottom: 32px;
+        }
+
+        .shopping-card {
+            background: #FCFCFC;
+            padding: 34px 0px 0px;
+        }
+    </style>
+    <div class="shopping-card">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="table-content table-responsive">
+        {% if items | length > 0 %}
+        <table class="table">
+            <thead>
+            <tr class="item-title" style="border-bottom: 3px solid #e1e1e1;">
+                <th>Produit&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th>Nom du Produit&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th>Prix&nbsp;tab&nbsp;&nbsp;&nbsp;</th>
+                <th>Quantités&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th>Total&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th>Delete&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+                <tr class="content">
+                    <td>
+                        <img class="image_style" src="{{ asset('') }}{{ vich_uploader_asset(item.product, 'imageFile') }}">
+                    </td>
+                    <td>
+                        <a href="#">{{ item.product.nom }}</a>
+                    </td>
+                    <td class="product-price"><span class="amount">{{ item.product.prix }} TND</span></td>
+                    <td class="product-quantity">
+                        <div class="quantity-range">
+                            {{ item.quantity}}
+                        </div>
+                    </td>
+                    <td class="product-subtotal">{{item.product.prix * item.quantity}} TND</td>
+                    <td class="product-cart-icon product-subtotal">
+                        <a href="{{ path('deletePanier',{'id':item.product.id}) }}">
+                            <i class="fa fa-trash" style="font-size:30px"></i></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-wrapper">
+                <a href="{{ path('produit_index') }}" class="btn btn-element btn-medium btn-red">
+                    Continue Shopping
+                    <i class="fa fa-long-arrow-right"></i>
+                </a>
+            </div>
+             <div class="btn-wrapper">
+                <div class="text-right">
+                    <!--<button class="btn btn-element btn-normal btn-gray">
+                        <span>Update</span>
+                    </button>
+                    <a class="btn btn-element btn-normal btn-red" href="#">
+                        <span>Checkout</span>
+                    </a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h3 </h3>
+            <ul class="padding-ul">
+                <li class="padding-li">
+                    <span>TOTAL</span>
+                    <span class="span-right"> &nbsp;&nbsp;{{total}}&nbsp;&nbsp; TND</span>
+                </li>
+
+            </ul>
+            <div class="btn-wrapper">
+                <a href="#" class="btn-primary">Payment</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% else %}
+
+    <div class="shopping-card">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="table-content table-responsive">
+                        <table>
+                            <thead>
+                            <tr class="item-title" style="border-bottom: 3px solid #e1e1e1;">
+                                <th>Products</th>
+                                <th>Products Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Delete</th>
+                            </tr>
+                            <br>
+                            <br>
+                            <br>
+                            </thead>
+                            <tbody>
+                            <tr class="content">
+                                <td>
+                                    <h3 class="item-title">Panier Vide !</h3>
+                                </td>
+                                <td>
+                                    <a href="#"></a>
+                                </td>
+                                <td class="product-price"><span class="amount">TND</span></td>
+                                <td class="product-quantity">
+                                    <div class="quantity-range">
+
+                                    </div>
+                                </td>
+                                <td class="product-subtotal">TND</td>
+                                <td class="product-cart-icon product-subtotal">
+                                    <a href="#">
+                                        <i class="fa fa-trash" style="font-size:30px"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-wrapper">
+                        <a href="{{ path('produit_index') }}" class="btn btn-element btn-medium btn-red">
+                            Continue Shopping
+                            <i class="fa fa-long-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="btn-wrapper">
+                        <div class="text-right">
+                            <button class="btn btn-element btn-normal btn-gray">
+                                <span>Update</span>
+                            </button>
+                            <a class="btn btn-element btn-normal btn-red" href="#">
+                                <span>Checkout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h3 class="cart_total ">cart total</h3>
+                    <ul class="padding-ul">
+                        <li class="padding-li">
+                            <span>sub total</span>
+                            <span class="span-right">TND</span>
+                        </li>
+                        </li>
+                        <li class="padding-li">
+                            <span>order total</span>
+                            <span class="span-right"></span>
+                        </li>
+                    </ul>
+                    <div class="btn-wrapper">
+                        <a href="#" class="btn btn-element btn-normal btn-red">Payment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+{% endblock %}

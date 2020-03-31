@@ -1,0 +1,86 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Réclamation {% endblock %}
+{% block bground %}
+{% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <a class="row" href="{{ path('reclamation_index') }}" >
+        <button class="r2">
+        Liste des Réclamations
+        </button>
+    </a>
+
+
+    <h1>Réclamation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reclamation.idR }}</td>
+            </tr>
+            <tr>
+                <th >Objet</th>
+                <td>{{ reclamation.objet }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ reclamation.description }}</td>
+            </tr>
+
+            <tr>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reclamation_edit', { 'idR': reclamation.idR }) }}">
+            <button class="r" >
+            Modifier
+            </button>
+            </a>
+        </li>
+        <li>
+            <style>body {
+                    background-color: lightblue;
+                }
+                th{
+                    padding: 20px;
+                }
+                h1 {
+                    color: black;
+                    text-align: center;
+                }
+                button.r{
+                    background-color: #7e7e7e;
+                    border-radius: 30%;
+
+                }
+                a.row{
+                    alignment: right;
+                }
+                button.r2{
+                    alignment: right;
+                    padding: 1px;
+                    margin: 20px;
+                }
+            </style>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="bg-gradient-">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    <br>
+
+        {% if not app.user %}
+            Connectez vous pour que vous puissiez gérer les Réclamations.<br><br><br><br><br><br><br><br><br><br><br>
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+collecte_homepage:
+    path:     /
+    defaults: { _controller: CollecteBundle:Default:index }
+collecte_collect:
+    resource: "@CollecteBundle/Resources/config/routing/collect.yml"
+    prefix:   /collect
+collecte_categoriecollect:
+    resource: "@CollecteBundle/Resources/config/routing/categoriecollect.yml"
+    prefix:   /categoriecollect

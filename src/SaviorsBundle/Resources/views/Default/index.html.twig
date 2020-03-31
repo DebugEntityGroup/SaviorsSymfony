@@ -1,0 +1,254 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="about_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="single_about_info">
+                        <h3>Ce que nous <br>
+                            Faisons</h3>
+                        <p>Saviors est une Plateforme associative de Dons en ligne qui permet aux Associations
+                            et individus ansi que les fournisseurs de créer
+                            et contribuer a des campagnes de collecte de Dons. </p>
+                        <a href="{{ path('about') }}" class="boxed_btn">Lire Plus</a>
+                    </div>
+                </div>
+                <div class="col-xl-6 offset-xl-1 col-lg-6">
+                    <div class="about_tutorials">
+                        <div class="courses">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>{{ events|length }}</span>
+                                    <p>Evénements</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="courses-blue">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>{{ users|length-1 }}</span>
+                                    <p>Utilisateurs</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="courses-sky">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>{{ collectes|length }}</span>
+                                    <p>Collectes</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popular_courses">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <h3>Actualités Saviors</h3>
+                        <p>Bienvenue sur la collecte en ligne "Solidarité inter-Jeunes médecins"
+
+
+
+                            C'est parce que nous comptons sur votre générosité et solidarité que nous nous permettons de vous solliciter. Quelque soit le montant de votre Don, votre geste fera la différence et sera apprécié.
+
+
+
+                            Parce que dans les moments difficiles nous nous devons d'être solidaires, surtout quand un incident aussi tragique que la mort d'un collègue survient, laissant derrière lui une famille, une femme et des enfants qui ne doivent pas se sentir seuls et doivent sentir que nous sommes là pour eux.
+
+
+
+                            Je tiens à vous informer que tous les paiements sont 100% sécurisés et que vous n'êtes pas obligé de vous inscrire.
+
+
+
+                            Vous pouvez aussi Partager autour de vous.
+
+
+
+                            Merci à tous !</p>
+                    </div>
+                </div>
+            </div>
+                    </div>
+                </div>
+
+    <div class="testimonial_area testimonial_bg_1 overlay">
+        <div class="testmonial_active owl-carousel">
+            <div class="single_testmoial">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="testmonial_text text-center">
+                                <div class="author_img">
+                                    <img src="{{ asset('Front/img/testmonial/okok.png') }}" alt="" style="height: 50px;width: 50px;">
+                                </div>
+                                <p>
+                                   " ETRE SOLIDAIRE CE N'EST PAS QUE DES MOTS MAIS C'EST AUSSI AGIR, MEME A DISTANCE . "
+
+                                </p>
+                                <span>- Sanzy Viany</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_testmoial">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="testmonial_text text-center">
+                                <div class="author_img">
+                                    <img src="{{ asset('Front/img/testmonial/okok.png') }}" alt="" style="height: 50px;width: 50px;">
+                                </div>
+                                <p>
+                                    "Un coeur ne bat que pour l'amour de la solidarité"<br>
+
+
+
+                                </p>
+                                <span>- Sali Sek</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testimonial_area_end -->
+
+    <!-- our_courses_start -->
+    <div class="our_courses">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <h1>Nos Services</h1>
+                        <p> <font size = "5px" color = "">soutenez une cause qui vous tient a coeur !</font></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-lg-6">
+                    <div class="single_course text-center">
+                        <div class="icon">
+                            <i class="flaticon-art-and-design"></i>
+                        </div>
+                        <h3>Evennements</h3>
+                        <p>
+                            soyez a jour a nos evennement
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-6">
+                    <div class="single_course text-center">
+                        <div class="icon blue">
+                            <i class="flaticon-business-and-finance"></i>
+                        </div>
+                        <h3>Publication</h3>
+                        <p>
+                            Exprimez vous ...<br><br>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-6">
+                    <div class="single_course text-center">
+                        <div class="icon">
+                            <i class="flaticon-premium"></i>
+                        </div>
+                        <h3>Collecte</h3>
+                        <p>
+                            faire des dons pour sauvez les refuges
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-6">
+                    <div class="single_course text-center">
+                        <div class="icon gradient">
+                            <i class="flaticon-crown"></i>
+                        </div>
+                        <h3>Produits</h3>
+                        <p>
+                            choisir des produit pour sauvez les refuges
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="our_latest_blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <h3>Sauvons Le Monde</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_latest_blog">
+                        <div class="thumb">
+                            <img src="{{ asset('Front/img/latest_blog/eat.jpg') }}" style = "width: 400px; height: 200px;">
+                        </div>
+                        <div class="content_blog">
+                            <div class="date">
+                                <p>Aug. 8, 2019. la tunisie</p>
+                            </div>
+                            <div class="blog_meta">
+                                <h3>
+                                    Contribuer a nos évenements
+                                    </h3>
+                            </div>
+                            <p class="blog_text">
+                                Des responsables caritatifs ont livré des colis de riz à des réfugiés syriens dans la province méridionale de Hatay
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_latest_blog">
+                        <div class="thumb">
+                            <img src="{{ asset('Front/img/latest_blog/help.jpg') }}" style = "width: 400px; height: 200px;">
+                        </div>
+                        <div class="content_blog">
+                            <div class="date">
+                                <p>12 Jun, 2019  tunisie <a href="#"></a></p>
+                            </div>
+                            <div class="blog_meta">
+                                <h3>Faites des dons</h3>
+                            </div>
+                            <p class="blog_text">
+                                un evenements organisée en collaborations avec des membres volontaires a fin de collecter des vetements , de la nutrition a des refuger
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_latest_blog">
+                        <div class="thumb">
+                            <img src="{{ asset('Front/img/latest_blog/volunteer.jpg') }}" style = "width: 400px; height: 200px;">
+                        </div>
+                        <div class="content_blog">
+                            <div class="date">
+                                <p>30 jan, 2019 tunisie </p>
+                            </div>
+                            <div class="blog_meta">
+                                <h3>Aider les autres</h3>
+                            </div>
+                            <p class="blog_text">
+                                Un autre evenement organisé n collaboration avec d'autres associations pour aider les petits enfants sans abri et collecter des livre educatifs
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'layout.html.twig' %}
+{% block title %} Ajout d'une Catégorie {% endblock %}
+ {% block bground %}
+ {% endblock %}
+{% block nav %}
+    <li><a href="{{ path('saviors_homepage') }}">Accueil</a></li>
+    <li><a href="{{ path('news') }}">Actualités</a></li>
+    <li><a href="{{ path('about') }}">A Propos</a></li>
+    <li><a href="{{ path('contact') }}">Contact</a></li>
+{% endblock %}
+{% block content %}
+    {% if app.user and is_granted('ROLE_ASSOC') %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p align = "right">
+        <a href="{{ path('categoriecollect_index') }}">
+            <button class="listecat">
+                Liste des Catégories
+            </button>
+        </a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="{{ path('collect_index') }}">
+            <button class="listecollect">
+                Liste des Collectes
+            </button>
+        </a>
+    </p>
+    <h1>Ajouter une Catégorie</h1>
+
+    {{ form_start(form) }}
+    <table>
+        <tr><td style="font-family: Poppins;">Type de la Catégorie</td><td>{{ form_widget(form.typeCategorie, {'attr':{'style':'width:450px;'}}) }}</td></tr>
+        <tr><td style="font-family: Poppins;"></td><td><input type="submit" value="Ajouter" class="btn-success" style="font-family: Poppins;"/></td></tr>
+    </table>
+    {{ form_end(form) }}
+    <br>
+    {% endif %}
+    {% if not app.user %}
+        <br><br><br><br><br><br>
+        Connectez vous en tant qu'association pour continuer.
+    {% endif %}
+    {% if not is_granted('ROLE_ASSOC') and app.user%}
+        <br><br><br><br><br><br>
+        Cet espace est réservé uniquement pour les associations.
+    {% endif %}
+    <br>
+    <style type = "text/css">
+        .listecat {
+            background-color: #4f3d40;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .listecat:hover {
+            background-color: #4f3516;
+            color: white;
+        }
+        .listecollect {
+            background-color: #4a4f1f;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .listecollect:hover {
+            background-color: #4f4222;
+            color: white;
+        }
+    </style>
+{% endblock %}

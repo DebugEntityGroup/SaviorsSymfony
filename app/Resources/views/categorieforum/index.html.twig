@@ -1,0 +1,74 @@
+{% extends 'layout.html.twig' %}
+ {% block bground %}
+ {% endblock %}
+
+{% block content %}
+    <br><br>Liste des categorie</h2></center>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="post-container">
+                <div class="row" >
+<ul>
+    <li>
+        <button  class="btn btn-sm btn-outline-info" style="margin-right: 70px;">  <a href="{{ path('categorieforum_new') }}"> <h3>Create a new Categorie</h3></a> </button>
+
+    </li>
+</ul>
+                    <section class="featured section-padding">
+                        <div class="container">
+                            <div class="row">
+                                {% for categorieForum in categorieForums %}
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                                        <div class="featured-box" >
+                                            <figure>
+                                                <td><a href="{{ path('categorieforum_show', { 'id': categorieForum.id }) }}"></a>
+                                            </figure>
+                                            <div class="content-wrapper" style="margin-right: 150px;" >
+                                                <div class="feature-content" >
+                                                    <h4><a href="{{  path('categorieforum_show', { 'id': categorieForum.id }) }}">{{ categorieForum.nom }}</a></h4>
+                                                    <p class="listing-tagline">{{ categorieForum.nom|trim }}</p>
+                                                    <div class="meta-tag">
+                                                        <div class="user-name">
+                                                            <a href="#"><i class="lni-user"></i>{{ categorieForum.nom  }} </a>
+                                                            <br>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="listing-bottom clearfix">
+                                                    <div class="btn-group">
+                                                        <a href="{{ path('firstindext', { 'id': categorieForum.id }) }}"><button  type="button" class="btn btn-sm btn-outline-primary" >View</button></a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+    </li>
+</ul>
+                                    </div>
+
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                    </div>
+                        </div>
+
+                    </section>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

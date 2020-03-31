@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block bground %}
+{% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<center><h2 class="contact-title">
+        <br><br>Modifier Categorie</h2></center>
+<div class="form-group has-error">
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form.nom,{'attr':{'type':'text','class':'form-control','placeholder':'Nom...'}}) }}
+    <br> <br> <br>
+    {{ form_widget(edit_form.description,{'attr':{'type':'textarea','class':'form-control','placeholder':'Description...'}}) }}
+    <br> <br> <br>
+    <center> <input type="submit" value="Edit" class="btn btn-common"  />  </center>
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('categorie_index') }}"><button type="button" class="btn btn-primary">Revenir a la list</button></a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn-warning" onclick="return confirm('tu est sur de supprimer cette categorie?')">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

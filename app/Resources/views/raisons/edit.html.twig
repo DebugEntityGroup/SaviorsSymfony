@@ -1,0 +1,41 @@
+{% block title %} Modifier une Collecte {% endblock %}
+{% if is_granted('ROLE_ADMIN') %}
+{% extends 'layout.html.twig' %}
+    {% block bground %}
+    {% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Modifier Raison</h1>
+    <div align="right">
+    <a href="{{ path('raisons_index') }}">
+        <button class = "raisons">
+        Liste des raisons
+        </button>
+    </a>
+    </div>
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" class="btn-info" />
+    {{ form_end(edit_form) }}
+            {{ form_start(delete_form) }}
+                <input type="submit" value="supprimer" class="btn-danger">
+            {{ form_end(delete_form) }} <br>
+    <style>
+        .raisons {
+            background-color: #4f3d40;
+            color: white;
+            height: 35px;
+            font-family: Poppins;
+        }
+        .raisons:hover {
+            background-color: #4f3516;
+            color: white;
+        }
+    </style>
+{% endblock %}
+{% endif %}

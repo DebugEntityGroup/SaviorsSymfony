@@ -1,0 +1,4 @@
+services:
+#    collecte.example:
+#        class: CollecteBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

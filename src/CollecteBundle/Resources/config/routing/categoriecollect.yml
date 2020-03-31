@@ -1,0 +1,24 @@
+categoriecollect_index:
+    path:     /
+    defaults: { _controller: "CollecteBundle:CategorieCollect:index" }
+    methods:  GET
+
+categoriecollect_show:
+    path:     /{typeCategorie}/show
+    defaults: { _controller: "CollecteBundle:CategorieCollect:show" }
+    methods:  GET
+
+categoriecollect_new:
+    path:     /new
+    defaults: { _controller: "CollecteBundle:CategorieCollect:new" }
+    methods:  [GET, POST]
+
+categoriecollect_edit:
+    path:     /{typeCategorie}/edit
+    defaults: { _controller: "CollecteBundle:CategorieCollect:edit" }
+    methods:  [GET, POST]
+
+categoriecollect_delete:
+    path:     /{typeCategorie}/delete
+    defaults: { _controller: "CollecteBundle:CategorieCollect:delete" }
+    methods:  DELETE
