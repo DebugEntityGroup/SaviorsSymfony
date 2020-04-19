@@ -39,6 +39,7 @@
         </thead>
         <tbody>
         {% for categorieCollect in categorieCollects %}
+            {% if app.user.username == categorieCollect.user.username %}
             <tr>
                 <td class="text-center" style="font-family: Poppins;"><a href ="{{ path('collect_parcat',{'typeCategorie': categorieCollect.typeCategorie}) }}">{{ categorieCollect.typeCategorie }}</a></td>
                 <td class="text-center" style="font-family: Poppins;">
@@ -49,6 +50,7 @@
                             </a>
                 </td>
             </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
