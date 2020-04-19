@@ -21,6 +21,28 @@ class CategorieCollect
     private $typeCategorie;
 
     /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="CategorieCollect")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
      * Set typeCategorie
      *
      * @param string $typeCategorie
